@@ -1,0 +1,470 @@
+<?php
+return [
+  0 => 
+  [
+    'camera_name' => 'EOS R6 Mark II',
+    'model_number' => '5666C001',
+    'release_year' => '2022-12-15',
+    'total_pixels' => 2560,
+    'effective_pixels' => 2420,
+    'sensor_width_mm' => 36,
+    'sensor_height_mm' => 24,
+    'image_sensor' => 'CMOS',
+    'viewfinder_type' => 'OLEDカラー電子ビューファインダー',
+    'viewfinder_coverage' => '100',
+    'viewfinder_magnification' => '0.76',
+    'lcd_type' => 'TFT式カラー液晶モニター',
+    'lcd_size_inch' => 3,
+    'lcd_resolution_dots' => 1620000,
+    'iso_standard_min' => 100,
+    'iso_standard_max' => 102400,
+    'iso_extended_min' => 50,
+    'iso_extended_max' => 204800,
+    'metering_method' => '撮像素子の出力信号による384分割（24×16）測光',
+    'exposure_value' => 'EV-3～20',
+    'shutter_electronic_min' => 30,
+    'shutter_electronic_max' => 6.25E-5,
+    'shutter_mechanical_min' => 30,
+    'shutter_mechanical_max' => 0.000125,
+    'drive_mode' => '高速連続撮影＋、RAWバーストモード、HDRモード、フォーカスブラケット撮影、絞り数値変化時の露出維持（ISO感度／Tv値、Tv値）設定時は、1／8000秒まで',
+    'burst_mode_fps' => '40fps',
+    'temperature_low' => 2500,
+    'temperature_high' => 10000,
+    'af_methods' => 'デュアルピクセルCMOS AF',
+    'af_points' => 1053,
+    'card_slot_count' => 2,
+    'photo_resolution_l' => 24000000,
+    'photo_resolution_m' => 10600000,
+    'photo_resolution_s' => 5900000,
+    'video_resolution' => 8294400,
+    'audio_format' => '［音声圧縮：する］設定時はAAC／［音声圧縮：しない］設定時はリニアPCM',
+    'bluetooth' => 'Bluetooth Specification Version 5.0準拠',
+    'wifi' => 'IEEE 802.11b／g／n／a／ac規格相当',
+    'battery_type' => 'LP-E6P／LP-E6NH／LP-E6N／LP-E6',
+    'shots_per_charge' => 760,
+    'operating_temp_min_c' => 0,
+    'operating_temp_max_c' => 40,
+    'body_width' => 138.4,
+    'body_height' => 98.4,
+    'body_depth' => 88.4,
+    'body_weight_g' => 588,
+    'body_total_weight_g' => 670,
+    'manufacturer_name' => 'Canon',
+    'camera_type_name' => 'ミラーレス',
+    'lens_mount_name' => 'キヤノンRFマウント',
+    'sensor_type_name' => 'フルサイズ',
+    'colorOptions' => 
+    [
+      0 => 'ブラック',
+    ],
+    'meteringModes' => 
+    [
+      0 => '評価測光',
+      1 => '部分測光',
+      2 => 'スポット測光',
+      3 => '中央重点測光',
+    ],
+    'selfTimerSeconds' => 
+    [
+      0 => '2秒',
+      1 => '10秒',
+    ],
+    'whiteBalances' => 
+    [
+      0 => 'オート',
+      1 => '晴天 (太陽光)',
+      2 => '日陰',
+      3 => '曇天 (くもり)',
+      4 => '白熱灯 (電球)',
+      5 => '色温度マニュアル',
+      6 => '蛍光灯 (寒色)',
+      7 => 'フラッシュ',
+    ],
+    'recordingMedias' => 
+    [
+      0 => 'SD',
+      1 => 'SDHC',
+      2 => 'SDXC',
+      3 => 'UHS-I対応',
+      4 => 'UHS-II対応',
+    ],
+    'photoFormats' => 
+    [
+      0 => 'JPEG',
+      1 => 'HEIF',
+      2 => 'RAW',
+      3 => 'C-RAW',
+      4 => 'DPRAW',
+    ],
+    'videoFormats' => 
+    [
+      0 => 'MP4',
+    ],
+    'videoCodecs' => 
+    [
+    ],
+    'interfaceModels' => 
+    [
+      0 => 'シンクロターミナル/タイムコード端子',
+      1 => 'USB 3.1 Gen1 Type C',
+      2 => 'HDMIマイクロ端子（タイプD）',
+      3 => 'オーディオ アウト3.5 mm',
+      4 => 'オーディオ イン3.5 mm',
+      5 => 'リモコン端子（タイプN3）',
+      6 => 'ホットシュー（電子接点有）',
+    ],
+    'accessories' => 
+    [
+      0 => 'バッテリー',
+      1 => 'バッテリーチャージャー',
+      2 => 'ストラップ',
+      3 => 'ボディキャップ',
+      4 => 'ホットシューカバー',
+    ],
+    'displayLanguages' => 
+    [
+      0 => '英語',
+      1 => '日本語',
+    ],
+    'features' => 
+    [
+      0 => '防塵・防滴',
+      1 => '手ブレ補正機構',
+      2 => '5軸手ブレ補正',
+      3 => '自分撮り機能',
+      4 => 'タッチパネル',
+      5 => 'ゴミ取り機構',
+      6 => 'タイムラプス',
+      7 => 'ライブビュー',
+      8 => 'RAW+JPEG同時記録',
+      9 => 'バルブ',
+      10 => 'Wi-Fi',
+      11 => 'ピーキング表示',
+    ],
+    'battery_data' => 
+    [
+      'battery_type' => 'LP-E6P／LP-E6NH／LP-E6N／LP-E6',
+      'battery_capacity_mAh' => NULL,
+      'battery_weight_g' => NULL,
+    ],
+    'price_history' => 
+    [
+      'price' => 319000,
+      'price_data' => '2025-09-04',
+    ],
+  ],
+  1 => 
+  [
+    'camera_name' => 'EOS R1',
+    'model_number' => '6577C001',
+    'release_year' => '2024-11-29',
+    'total_pixels' => 2670,
+    'effective_pixels' => 2420,
+    'sensor_width_mm' => 36,
+    'sensor_height_mm' => 24,
+    'image_sensor' => '裏面照射積層CMOSセンサー',
+    'image_processor' => 'DIGIC X',
+    'viewfinder_type' => 'OLEDカラー電子ビューファインダー',
+    'viewfinder_coverage' => '100',
+    'viewfinder_magnification' => '0.9',
+    'lcd_type' => 'TFT式カラー液晶モニター',
+    'lcd_size_inch' => 3.2,
+    'lcd_resolution_dots' => 2100000,
+    'iso_standard_min' => 100,
+    'iso_standard_max' => 102400,
+    'iso_extended_min' => 50,
+    'iso_extended_max' => 409600,
+    'metering_method' => '撮像素子の出力信号による 6144分割（96×64）測光',
+    'exposure_value' => 'EV-3～20',
+    'shutter_electronic_min' => 30,
+    'shutter_electronic_max' => 1.5625E-5,
+    'shutter_mechanical_min' => 30,
+    'shutter_mechanical_max' => 0.000125,
+    'drive_mode' => '1枚撮影、高速連続撮影＋、高速連続撮影、低速連続撮影、 セルフタイマー：10秒、セルフタイマー：2秒、セルフタイマー：連続撮影',
+    'burst_mode_fps' => '40fps',
+    'temperature_low' => 2500,
+    'temperature_high' => 10000,
+    'af_methods' => 'デュアルピクセルCMOS AF',
+    'af_points' => 1053,
+    'card_slot_count' => 2,
+    'photo_resolution_l' => 24000000,
+    'photo_resolution_m' => 10600000,
+    'photo_resolution_s' => 5900000,
+    'audio_format' => 'LPCM(4ch 24bit) , AAC(2ch 16bit)',
+    'bluetooth' => 'Bluetooth Specification Version 5.3準拠',
+    'wifi' => 'IEEE 802.11b／g／n／a／ac／ax 規格相当',
+    'battery_type' => 'LP-E19',
+    'battery_capacity_mAh' => 2700,
+    'battery_weight_g' => 185,
+    'shots_per_charge' => 1330,
+    'operating_temp_min_c' => 0,
+    'operating_temp_max_c' => 45,
+    'body_width' => 157.6,
+    'body_height' => 149.5,
+    'body_depth' => 87.3,
+    'body_weight_g' => 920,
+    'body_total_weight_g' => 1115,
+    'manufacturer_name' => 'Canon',
+    'camera_type_name' => 'ミラーレス',
+    'lens_mount_name' => 'キヤノンRFマウント',
+    'sensor_type_name' => 'フルサイズ',
+    'colorOptions' => 
+    [
+      0 => 'ブラック',
+    ],
+    'meteringModes' => 
+    [
+      0 => '評価測光',
+      1 => '部分測光',
+      2 => 'スポット測光',
+      3 => '中央重点測光',
+    ],
+    'selfTimerSeconds' => 
+    [
+      0 => '2秒',
+      1 => '10秒',
+    ],
+    'whiteBalances' => 
+    [
+      0 => 'オート',
+      1 => '晴天 (太陽光)',
+      2 => '日陰',
+      3 => '曇天 (くもり)',
+      4 => '白熱灯 (電球)',
+      5 => '蛍光灯 (寒色)',
+      6 => 'フラッシュ',
+      7 => '色温度マニュアル',
+    ],
+    'recordingMedias' => 
+    [
+      0 => 'CFexpress card type B',
+    ],
+    'photoFormats' => 
+    [
+      0 => 'JPEG',
+      1 => 'HEIF',
+      2 => 'RAW',
+      3 => 'C-RAW',
+    ],
+    'videoFormats' => 
+    [
+      0 => 'MP4',
+    ],
+    'videoCodecs' => 
+    [
+    ],
+    'interfaceModels' => 
+    [
+      0 => 'ホットシュー（電子接点有）',
+      1 => 'リモコン端子（タイプN3）',
+      2 => 'USB 3.1 Gen1 Type C',
+      3 => 'HDMI端子 2.1 Type A',
+      4 => 'オーディオ アウト3.5 mm',
+      5 => 'オーディオ イン3.5 mm',
+      6 => '通信インターフェース',
+    ],
+    'accessories' => 
+    [
+      0 => 'アイピースカップ',
+      1 => 'ホットシューカバー',
+      2 => 'バッテリー',
+      3 => 'バッテリーチャージャー',
+      4 => 'ケーブルプロテクター',
+      5 => 'ストラップ',
+      6 => 'ボディキャップ',
+      7 => 'USBケーブル',
+    ],
+    'displayLanguages' => 
+    [
+      0 => '英語',
+      1 => '日本語',
+    ],
+    'features' => 
+    [
+      0 => '防塵・防滴',
+      1 => '手ブレ補正機構',
+      2 => '5軸手ブレ補正',
+      3 => '自分撮り機能',
+      4 => 'タッチパネル',
+      5 => 'ゴミ取り機構',
+      6 => 'ライブビュー',
+      7 => 'GPS',
+      8 => 'UBS充電',
+      9 => 'RAW+JPEG同時記録',
+      10 => 'バルブ',
+      11 => 'Wi-Fi',
+      12 => 'ピーキング表示',
+    ],
+    'battery_data' => 
+    [
+      'battery_type' => 'LP-E19',
+      'battery_capacity_mAh' => 2700,
+      'battery_weight_g' => 185,
+    ],
+    'price_history' => 
+    [
+      'price' => 1089000,
+      'price_data' => '2025-09-04',
+    ],
+  ],
+  2 => 
+  [
+    'camera_name' => 'EOS R3',
+    'model_number' => '4895C001',
+    'release_year' => '2021-11-27',
+    'total_pixels' => 2670,
+    'effective_pixels' => 2410,
+    'sensor_width_mm' => 36,
+    'sensor_height_mm' => 24,
+    'image_sensor' => '裏面照射積層CMOSセンサー',
+    'image_processor' => 'DIGIC X',
+    'viewfinder_type' => 'OLEDカラー電子ビューファインダー',
+    'viewfinder_coverage' => '100',
+    'viewfinder_magnification' => '0.76',
+    'lcd_type' => 'TFT式カラー液晶モニター',
+    'lcd_size_inch' => 3.2,
+    'lcd_resolution_dots' => 4150000,
+    'iso_standard_min' => 100,
+    'iso_standard_max' => 102400,
+    'iso_extended_min' => 50,
+    'iso_extended_max' => 204800,
+    'metering_method' => '撮像素子の出力信号による384分割（24×16）測光',
+    'exposure_value' => 'EV-3～20',
+    'shutter_electronic_min' => 30,
+    'shutter_electronic_max' => 1.5625E-5,
+    'shutter_mechanical_min' => 30,
+    'shutter_mechanical_max' => 0.000125,
+    'drive_mode' => '1枚撮影、カスタム高速連続撮影※、高速連続撮影＋、高速連続撮影、低速連続撮影、 セルフタイマー：10秒／リモコン、セルフタイマー：2秒／リモコン',
+    'burst_mode_fps' => '30fps',
+    'temperature_low' => 2500,
+    'temperature_high' => 10000,
+    'af_methods' => 'デュアルピクセルCMOS AF',
+    'af_points' => 1053,
+    'card_slot_count' => 2,
+    'photo_resolution_l' => 24000000,
+    'photo_resolution_m' => 10600000,
+    'photo_resolution_s' => 5900000,
+    'video_resolution' => 24000000,
+    'audio_format' => 'ALL-I／IPB：AAC／リニアPCM（選択可能）、IPB（軽量）：AAC',
+    'bluetooth' => 'Bluetooth Specification Version 5.0準拠',
+    'wifi' => 'IEEE 802.11b／g／n／a／ac規格相当',
+    'microphone' => 'モノラルマイク内蔵',
+    'battery_type' => 'LP-E19',
+    'battery_capacity_mAh' => 2700,
+    'battery_weight_g' => 185,
+    'shots_per_charge' => 860,
+    'operating_temp_min_c' => 0,
+    'operating_temp_max_c' => 40,
+    'body_width' => 150,
+    'body_height' => 142.6,
+    'body_depth' => 87.2,
+    'body_weight_g' => 822,
+    'body_total_weight_g' => 1015,
+    'manufacturer_name' => 'Canon',
+    'camera_type_name' => 'ミラーレス',
+    'lens_mount_name' => 'キヤノンRFマウント',
+    'sensor_type_name' => 'フルサイズ',
+    'colorOptions' => 
+    [
+      0 => 'ブラック',
+    ],
+    'meteringModes' => 
+    [
+      0 => '部分測光',
+      1 => '評価測光',
+      2 => 'スポット測光',
+      3 => '中央重点測光',
+    ],
+    'selfTimerSeconds' => 
+    [
+      0 => '2秒',
+      1 => '10秒',
+    ],
+    'whiteBalances' => 
+    [
+      0 => 'オート',
+      1 => '晴天 (太陽光)',
+      2 => '曇天 (くもり)',
+      3 => '日陰',
+      4 => '白熱灯 (電球)',
+      5 => '蛍光灯 (寒色)',
+      6 => 'フラッシュ',
+      7 => '色温度マニュアル',
+    ],
+    'recordingMedias' => 
+    [
+      0 => 'CFexpress card type B',
+      1 => 'SDXC',
+      2 => 'SDHC',
+      3 => 'SD',
+      4 => 'UHS-II対応',
+      5 => 'UHS-I対応',
+    ],
+    'photoFormats' => 
+    [
+      0 => 'JPEG',
+      1 => 'HEIF',
+      2 => 'RAW',
+      3 => 'C-RAW',
+    ],
+    'videoFormats' => 
+    [
+      0 => 'MP4',
+    ],
+    'videoCodecs' => 
+    [
+    ],
+    'interfaceModels' => 
+    [
+      0 => 'ホットシュー（電子接点有）',
+      1 => 'USB 3.1 Gen1 Type C',
+      2 => '通信インターフェース',
+      3 => 'HDMIマイクロ端子（タイプD）',
+      4 => 'オーディオ アウト3.5 mm',
+      5 => 'オーディオ イン3.5 mm',
+      6 => 'リモコン端子（タイプN3）',
+    ],
+    'accessories' => 
+    [
+      0 => 'バッテリー',
+      1 => 'バッテリーチャージャー',
+      2 => 'ストラップ',
+      3 => 'ボディキャップ',
+      4 => 'ホットシューカバー',
+      5 => 'USBケーブル',
+      6 => 'ケーブルプロテクター',
+    ],
+    'displayLanguages' => 
+    [
+      0 => '英語',
+      1 => '日本語',
+    ],
+    'features' => 
+    [
+      0 => '防塵・防滴',
+      1 => '手ブレ補正機構',
+      2 => '5軸手ブレ補正',
+      3 => '自分撮り機能',
+      4 => 'タッチパネル',
+      5 => 'ゴミ取り機構',
+      6 => 'ライブビュー',
+      7 => 'GPS',
+      8 => 'UBS充電',
+      9 => 'RAW+JPEG同時記録',
+      10 => 'Wi-Fi',
+      11 => 'ピーキング表示',
+      12 => 'バルブ',
+    ],
+    'battery_data' => 
+    [
+      'battery_type' => 'LP-E19',
+      'battery_capacity_mAh' => 2700,
+      'battery_weight_g' => 185,
+    ],
+    'price_history' => 
+    [
+      'price' => 792000,
+      'price_data' => '2025-09-04',
+    ],
+  ],
+];

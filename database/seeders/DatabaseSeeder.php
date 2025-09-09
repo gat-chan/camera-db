@@ -15,9 +15,30 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+
+        $this->call([
+            ManufacturerSeeder::class,    // メーカー
+            CameraTypeSeeder::class,      // カメラタイプ
+            LensMountSeeder::class,       // レンズマウント
+            SensorTypeSeeder::class,      // センサータイプ
+            ColorOptionSeeder::class,     // カラー展開
+            WhiteBalanceSeeder::class,    // ホワイトバランス
+            SelfTimerSecondSeeder::class, // セルフタイマー
+            MeteringModeSeeder::class,    // 測光モード
+            PhotoFormatSeeder::class,     // 静止画記録フォーマット
+            VideoFormatSeeder::class,     // 動画記録フォーマット
+            VideoCodecSeeder::class,      // 映像圧縮方式
+            InterfaceModelSeeder::class,  // インターフェース
+            RecordingMediaSeeder::class,  // 記録メディア
+            AccessorySeeder::class,       // 付属品
+            FeatureSeeder::class,         // その他機能
+            DisplayLanguageSeeder::class, // 表示言語
+            CameraSeeder::class,          // カメラデータ
+            UserSeeder::class,            // ユーザーデータ
         ]);
     }
 }
