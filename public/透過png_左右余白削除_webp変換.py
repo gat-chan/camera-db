@@ -52,10 +52,10 @@ def trim_transparent_only(image: Image.Image) -> Image.Image:
         image = image.convert('RGBA')
     # alphaチャンネルを取得
     alpha = image.split()[-1]
-    bbox = alpha.getbbox()  # alpha != 0 の領域を取得
+    bbox = alpha.getbbox() 
     if bbox:
         return image.crop(bbox)
-    return image  # 完全透明画像はそのまま
+    return image
 
 
 def trim_transparent_with_threshold(image: Image.Image, alpha_threshold=10) -> Image.Image:
