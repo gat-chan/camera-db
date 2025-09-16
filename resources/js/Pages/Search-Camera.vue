@@ -263,7 +263,12 @@
             <p class="mb-2">センサータイプ: {{ selectedCamera.sensor_type?.name_ja || '不明' }}</p>
             <p class="mb-2">有効画素数: {{ selectedCamera.effective_pixels ? selectedCamera.effective_pixels + ' 万画素' : '不明' }}</p>
             <p class="mb-2">ISO感度: {{ selectedCamera.iso_standard_min || '不明' }} ~ {{ selectedCamera.iso_standard_max || '不明' }}</p>
-            <p class="mb-2">シャッタースピード: {{ selectedCamera.shutter_mechanical_min || '不明' }} ~ {{ selectedCamera.shutter_mechanical_max || '不明' }} 秒</p>
+            <p class="mb-2">
+              シャッタースピード:
+              {{ formatShutter(selectedCamera.shutter_mechanical_min) }}
+              ~
+              {{ formatShutter(selectedCamera.shutter_mechanical_max) }}
+            </p>
             <p class="mb-2">重量: {{ selectedCamera.body_weight_g ? selectedCamera.body_weight_g + ' g' : '不明' }}</p>
 
             <div v-if="selectedCamera.features?.length">
@@ -273,12 +278,25 @@
               </ul>
             </div>
 
-            <button
-              @click="closeModal"
-              class="mt-6 px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800"
-            >
-              閉じる
-            </button>
+            <!-- モーダル内のボタン部分 -->
+            <div class="flex gap-4 mt-6">
+              <!-- 閉じるボタン -->
+              <button
+                @click="closeModal"
+                class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800"
+              >
+                閉じる
+              </button>
+
+              <!-- 詳細ページボタン -->
+              <Link
+                :href="route('camera-detail', selectedCamera.id)"
+                class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              >
+                詳細ページへ
+              </Link>
+            </div>
+
           </div>
         </div>
       </div>
@@ -297,7 +315,7 @@
   
 <script setup>
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
-import { usePage, router } from '@inertiajs/vue3'
+import { usePage, router, Link } from '@inertiajs/vue3'
 import Layout from '@/Shared/Layout.vue'
 import { Disclosure, DisclosureButton, DisclosurePanel, TransitionRoot, TransitionChild } from '@headlessui/vue'
 import { ChevronUpIcon } from '@heroicons/vue/20/solid'
@@ -319,6 +337,7 @@ if (props.cameras && props.cameras.data) {
 }
 
 console.log('📦 cameras props:', cameras.value)
+// console.log(window.Ziggy.routes)
 
 const currentPage = ref(props.cameras?.current_page || 1)
 const lastPage = ref(props.cameras?.last_page || 1)
@@ -358,6 +377,28 @@ const removeThumbnail = (index) => {
     selectedImage.value = cameraThumbnails.value.find((_, i) => i !== index) || null
   }
   cameraThumbnails.value.splice(index, 1)
+}
+
+// シャッタスピード変換
+function formatShutter(speed) {
+  if (!speed) return '不明'
+
+  // 61秒以上 → 分表記（小数も可）
+  if (speed > 60) {
+    // ちょうど分割り切れるなら整数で表示
+    const minutes = speed / 60
+    return minutes % 1 === 0
+      ? `${minutes} 分`
+      : `${minutes.toFixed(1)} 分`
+  }
+
+  // 1秒以上（60秒以下）はそのまま秒
+  if (speed >= 1) {
+    return `${speed} 秒`
+  }
+
+  // 1秒未満は 1/xxx 形式
+  return `1/${Math.round(1 / speed)} 秒`
 }
 
 // 検索結果　トースト通知--------------------------------------------------------

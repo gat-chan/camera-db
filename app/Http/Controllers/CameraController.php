@@ -25,6 +25,7 @@ use App\Models\VideoCodec;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
+
 use Inertia\Inertia;
 class CameraController extends Controller
 {
@@ -243,17 +244,32 @@ class CameraController extends Controller
         ]));
     }
 
+    use \Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+
     // 更新処理
     public function update(Request $request, Camera $camera)
     {
-        $data = $this->validateData($request);
+        // $this->authorize('update', $camera); // 管理者のみ許可
+    
+        \Log::debug('Update function called');
+        \Log::debug('User info: ' . json_encode(auth()->user()));
 
+        // ポリシーを通す
+        $this->authorize('update', $camera);
+        
+        $data = $request->validate([
+            'body_total_weight_g' => 'nullable|numeric',
+            'price'               => 'nullable|numeric',
+            // 他の更新項目をここに追加
+        ]);
+    
         $camera->update($data);
 
-        $this->syncRelations($camera, $request);
-
-        return redirect()->route('cameras.index')->with('message', '更新完了');
+        \Log::debug('Camera updated', ['camera_id' => $camera->id, 'data' => $data]);
+    
+        return back()->with('success', '更新完了');
     }
+    
 
     // 削除（オプション）
     public function destroy(Camera $camera)
@@ -320,31 +336,30 @@ class CameraController extends Controller
         ];
     }
 
-    public function show(Request $request)
+    public function detail(Camera $camera)
     {
-        $manufacturer = $request->input('manufacturer'); // 'Leica'
-        $modelNumber = $request->input('model_number');  // '20212'
+        $camera->load([
+            'manufacturer',       // belongsTo
+            'cameraType',         // belongsTo
+            'lensMount',          // belongsTo
+            'sensorType',         // belongsTo
+            'features',           // belongsToMany
+            'colorOptions',       // belongsToMany
+            'meteringModes',      // belongsToMany
+            'selfTimerSeconds',   // belongsToMany
+            'whiteBalances',      // belongsToMany
+            'recordingMedias',    // belongsToMany
+            'photoFormats',       // belongsToMany
+            'videoFormats',       // belongsToMany
+            'videoCodecs',        // belongsToMany
+            'interfaceModels',    // belongsToMany
+            'accessories',        // belongsToMany
+            'displayLanguages',   // belongsToMany
+        ]);
     
-        $file = base_path("database/data/cameras/{$manufacturer}.php");
-    
-        if (!file_exists($file)) {
-            return response()->json(['error' => 'メーカーが見つかりません'], 404);
-        }
-    
-        $data = include $file;
-    
-        // 確認用に全部返す（動作確認後はコメントアウトしてください）
-        // return response()->json($data);
-    
-        // 型番で検索
-        $camera = collect($data)->first(function ($item) use ($modelNumber) {
-            return isset($item['model_number']) && $item['model_number'] == $modelNumber;
-        });
-    
-        if (!$camera) {
-            return response()->json(['error' => '型番が見つかりません'], 404);
-        }
-    
-        return response()->json($camera);
+        return Inertia::render('Camera-Detail', [
+            'camera' => $camera
+        ]);
     }
+    
 }

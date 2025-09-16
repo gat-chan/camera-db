@@ -86,6 +86,12 @@ class Camera extends Model
         return $this->belongsTo(CameraType::class);
     }
 
+    // レンズマウント
+    public function lensMount()
+    {
+        return $this->belongsTo(LensMount::class);
+    }
+
     // センサータイプ
     public function sensorType()
     {

@@ -1,7 +1,8 @@
 <?php
-
+// app/Http/Middleware/HandleunertiaRequests.php
 namespace App\Http\Middleware;
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -33,6 +34,8 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => fn () => $request->user(),
             ],
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
         ]);
     }
 }

@@ -73,7 +73,7 @@ console.log('Ziggy',Ziggy.namedRoutes);
             class="flex flex-col items-center p-2 rounded hover:bg-gray-700 transition"
           >
             <img
-              :src="`/img/maker_logos/${manufacturer.name_en.toLowerCase()}_logo.svg`"
+              :src="`/img/maker_logos/${manufacturer.name_en}_logo.svg`"
               :alt="manufacturer.name_ja || '不明'"
               class="w-16 h-16 md:w-24 md:h-24 object-contain mb-2 shadow-lg"
             />
@@ -111,31 +111,36 @@ console.log('Ziggy',Ziggy.namedRoutes);
             class="bg-white border rounded-lg p-4 flex flex-col items-center justify-center cursor-pointer"
             @click="openModal(camera)"
           >
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 mb-4">
-              <span class="text-base text-gray-500">
-                {{ camera.manufacturer?.name_ja || '不明' }}
-              </span>
-              <span class="text-xl font-bold text-gray-700">
-                {{ camera.camera_name || '不明' }}
-              </span>
-            </div>
-            <div class="w-full sm:w-1/2">
-              <div class="aspect-[16/9] w-full flex items-center justify-center">
-                <img
-                  :src="cameraImagePath(camera)"
-                  alt="カメラ画像"
-                  class="w-full h-full object-contain rounded"
-                  @error="camera.imageError = true"
-                  v-if="!camera.imageError"
-                />
-                <div
-                  v-else
-                  class="w-full h-full bg-gray-200 flex items-center justify-center rounded text-gray-500"
-                >
-                  画像なし
+            <Link
+              :href="route('camera-detail', camera.id)"
+              class="flex flex-col items-center w-full h-full"
+            >
+              <div class="flex flex-col sm:flex-row items-center justify-center gap-2 mb-4">
+                <span class="text-base text-gray-500">
+                  {{ camera.manufacturer?.name_ja || '不明' }}
+                </span>
+                <span class="text-xl font-bold text-gray-700">
+                  {{ camera.camera_name || '不明' }}
+                </span>
+              </div>
+              <div class="w-full sm:w-1/2">
+                <div class="aspect-[16/9] w-full flex items-center justify-center">
+                  <img
+                    :src="cameraImagePath(camera)"
+                    alt="カメラ画像"
+                    class="w-full h-full object-contain rounded"
+                    @error="camera.imageError = true"
+                    v-if="!camera.imageError"
+                  />
+                  <div
+                    v-else
+                    class="w-full h-full bg-gray-200 flex items-center justify-center rounded text-gray-500"
+                  >
+                    画像なし
+                  </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </swiper-slide>
         </swiper>
 

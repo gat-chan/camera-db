@@ -33,19 +33,16 @@ class WelcomeController extends Controller
 {
     public function index(Request $request)
     {
-        // 最新7件のカメラを取得
+        // 最新10件のカメラを取得
         $latestCameras = Camera::with('manufacturer')
         ->orderBy('created_at', 'desc')
-        ->take(7)
+        ->take(10)
         ->get();
 
         // dump($latestCameras);
 
         // 条件フォーム用に全メーカー一覧を取得
         $manufacturers = Manufacturer::all();
-
-        \Log::debug('latestCameras', $latestCameras->toArray());
-        \Log::debug('manufacturers', $manufacturers->toArray());
 
         // フィルター用入力値
         $filters = [
