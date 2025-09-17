@@ -218,7 +218,7 @@ return [
     'display_language_id' => 1,
     'manufacturer_name' => 'Leica',
     'camera_type_name' => 'ミラーレス',
-    'lens_mount_name' => 'ライカMマウント',
+    'lens_mount_name' => 'ライカLバヨネットマウント',
     'sensor_type_name' => 'フルサイズ',
     'colorOptions' => 
     [

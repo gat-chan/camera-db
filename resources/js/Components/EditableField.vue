@@ -9,6 +9,7 @@ const props = defineProps({
   field: { type: String, required: true },    // API に送るキー
   id: { type: Number, required: true },       // レコードID
   label: { type: String, required: true },    // 表示用ラベル
+  suffix: { type: String, default: '' },      // 単位
   isAdmin: { type: Boolean, default: false }, // 管理者かどうか
   type: { type: String, default: 'text' },    // 'text' | 'number' | 'date' | 'textarea' | 'boolean'
   step: { type: [String, Number], default: 1 }, // 数値用 step
@@ -66,10 +67,10 @@ const cancel = () => {
     <!-- 表示モード -->
     <span v-if="!editing">
       <template v-if="type === 'boolean'">
-        {{ modelValue ? 'Yes' : 'No' }}
+        {{ modelValue ? 'Yes' : 'No' }}{{ suffix }}
       </template>
       <template v-else>
-        {{ modelValue || '不明' }}
+        {{ modelValue || '不明' }}{{ suffix }}
       </template>
     </span>
 
@@ -81,6 +82,7 @@ const cancel = () => {
       v-bind="type === 'number' ? { step } : {}"
       class="px-2 py-1 rounded text-black"
     />
+    <span v-if="editing && suffix">{{ suffix }}</span>
 
     <textarea
       v-else-if="editing && type === 'textarea'"

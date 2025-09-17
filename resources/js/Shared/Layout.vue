@@ -1,8 +1,9 @@
+<!-- resources/js/Shared/Layout.vue -->
 <template>
     <Head>
         <link rel="icon" type="image/webp" href="/img/logos/logo_favicon.png" />
     </Head>
-    <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50 min-h-screen">
+    <div v-bind="$attrs" class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50 min-h-screen">
         <div class="relative flex flex-col items-center selection:bg-[#FF2D20] selection:text-white z-10">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <!-- ヘッダー -->

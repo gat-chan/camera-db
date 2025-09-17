@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             ['name'    => 'normaluser',
             'email'    => 'normal@example.com',
             'password' => '$2y$12$xv/Pa5425eoyZYzo7gCfQeP96BCFbHCVu33OJY8g/1KtnY4O0/MPK',
+            'is_admin' => '0',
             ],
         ]);
     }

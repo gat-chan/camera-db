@@ -2,7 +2,7 @@
 return [
   0 => 
   [
-    'camera_name' => 'FUJIFILM X-M5',
+    'camera_name' => 'X-M5',
     'model_number' => 'FF240002',
     'release_year' => '2024-11-28',
     'price' => 120170,

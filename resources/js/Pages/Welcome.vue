@@ -70,7 +70,7 @@ console.log('Ziggy',Ziggy.namedRoutes);
             v-for="manufacturer in manufacturers"
             :key="manufacturer.id"
             :href="route('search-camera', { manufacturer_ids: [manufacturer.id] })"
-            class="flex flex-col items-center p-2 rounded hover:bg-gray-700 transition"
+            class="flex flex-col items-center p-2 rounded hover:bg-gray-500 transition"
           >
             <img
               :src="`/img/maker_logos/${manufacturer.name_en}_logo.svg`"
@@ -105,43 +105,52 @@ console.log('Ziggy',Ziggy.namedRoutes);
             1024: { slidesPerView: 3 }     // PC（1024px~）
           }"
         >
-          <swiper-slide
-            v-for="camera in latestCameras"
-            :key="camera.id"
-            class="bg-white border rounded-lg p-4 flex flex-col items-center justify-center cursor-pointer"
-            @click="openModal(camera)"
+        <swiper-slide
+          v-for="camera in latestCameras"
+          :key="camera.id"
+          class="bg-white border rounded-lg p-4 flex flex-col items-center justify-center cursor-pointer"
+          @click="openModal(camera)"
+        >
+          <Link
+            :href="route('camera-detail', camera.id)"
+            class="flex flex-col items-center w-full h-full"
           >
-            <Link
-              :href="route('camera-detail', camera.id)"
-              class="flex flex-col items-center w-full h-full"
-            >
-              <div class="flex flex-col sm:flex-row items-center justify-center gap-2 mb-4">
-                <span class="text-base text-gray-500">
-                  {{ camera.manufacturer?.name_ja || '不明' }}
-                </span>
-                <span class="text-xl font-bold text-gray-700">
-                  {{ camera.camera_name || '不明' }}
-                </span>
-              </div>
-              <div class="w-full sm:w-1/2">
-                <div class="aspect-[16/9] w-full flex items-center justify-center">
-                  <img
-                    :src="cameraImagePath(camera)"
-                    alt="カメラ画像"
-                    class="w-full h-full object-contain rounded"
-                    @error="camera.imageError = true"
-                    v-if="!camera.imageError"
-                  />
-                  <div
-                    v-else
-                    class="w-full h-full bg-gray-200 flex items-center justify-center rounded text-gray-500"
-                  >
-                    画像なし
-                  </div>
+            <!-- メーカー + カメラ名 -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-2 mb-4">
+              <!-- メーカーロゴ -->
+              <img
+                v-if="camera.manufacturer"
+                :src="`/img/maker_logos/${camera.manufacturer.name_en}_logo.svg`"
+                :alt="camera.manufacturer.name_ja || 'メーカー不明'"
+                class="w-20 h-6 object-contain"
+              />
+              <!-- カメラ名 -->
+              <span class="text-xl font-bold text-gray-700">
+                {{ camera.camera_name || '不明' }}
+              </span>
+            </div>
+
+            <!-- カメラ画像 -->
+            <div class="w-full sm:w-1/2">
+              <div class="aspect-[16/9] w-full flex items-center justify-center">
+                <img
+                  :src="cameraImagePath(camera)"
+                  alt="カメラ画像"
+                  class="w-full h-full object-contain rounded"
+                  @error="camera.imageError = true"
+                  v-if="!camera.imageError"
+                />
+                <div
+                  v-else
+                  class="w-full h-full bg-gray-200 flex items-center justify-center rounded text-gray-500"
+                >
+                  画像なし
                 </div>
               </div>
-            </Link>
-          </swiper-slide>
+            </div>
+          </Link>
+        </swiper-slide>
+
         </swiper>
 
         <p v-if="latestCameras.length === 0" class="text-white text-center">
