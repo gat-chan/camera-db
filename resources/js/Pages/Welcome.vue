@@ -13,8 +13,8 @@ const latestCameras = ref(props.latestCameras || [])
 
 const modules = [Autoplay]
 
-console.log('📦 manufacturers props:', manufacturers.value)
-console.log('📦 latestCameras props:', latestCameras.value)
+// console.log('📦 manufacturers props:', manufacturers.value)
+// console.log('📦 latestCameras props:', latestCameras.value)
 
 const cameraImagePath = (camera) => {
   const manufacturer = camera.manufacturer?.name_en || '不明'

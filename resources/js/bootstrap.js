@@ -2,7 +2,9 @@
 import axios from 'axios';
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-axios.defaults.baseURL = '/'; // ローカル開発なら /
+
+// .env の VITE_API_URL を優先
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || '/';
 
 const token = document.head.querySelector('meta[name="csrf-token"]');
 if (token) {

@@ -56,3 +56,34 @@ php artisan cache:clear
 
 // ziggy再生成
 ./vendor/bin/sail artisan ziggy:generate
+
+//デプロイ
+npm run build
+git add .
+git commit -m "comment"
+git push -u origin
+
+EC2側
+git pull
+
+#git hub
+
+git add [file名] # file名のみ
+git add -A # git add . + git add -u = 新規作成/編集/削除したファイルをaddする
+git add -p # 対話モードになり、コード単位でadd指定ができる、addしたいならy（yes）,したくないならn(no),コードの塊を分割したいならs(split)でEnterを押していく
+
+git add . # すべてのファイル・ディレクトリ
+git add *.css # すべてのCSSファイル
+git add -n # 追加されるファイルを調べる
+git add -u # 変更されたファイルを追加する
+git rm --cached # addしてしまったファイルを除外（要確認）
+
+git commit 
+git commit -m "Initial commit 1" # メッセージを加える場合
+git commit --allow-empty -m "empty commit" # 空コミット
+
+git commit -a # 変更のあったファイルすべて
+git commit -v # 変更点を表示してコミット
+
+git push -u origin ブランチ名
+

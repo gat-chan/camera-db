@@ -1,10 +1,10 @@
+// resources/js/app.js
 import '../css/app.css';
 import './bootstrap';
 import { createInertiaApp } from '@inertiajs/vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createApp, h } from 'vue';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
-import { Ziggy } from './ziggy'; // ← 追加：Ziggy オブジェクトのインポート
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -18,7 +18,7 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         return createApp({ render: () => h(App, props) })
             .use(plugin)
-            .use(ZiggyVue, Ziggy) // ← ここで Ziggy を渡す
+            .use(ZiggyVue) // ← Ziggyだけを使う（window.Ziggyを参照）
             .mount(el);
     },
     progress: {
