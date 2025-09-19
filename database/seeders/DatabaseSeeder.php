@@ -26,9 +26,7 @@ class DatabaseSeeder extends Seeder
             LensMountSeeder::class,       // レンズマウント
             SensorTypeSeeder::class,      // センサータイプ
             ColorOptionSeeder::class,     // カラー展開
-            WhiteBalanceSeeder::class,    // ホワイトバランス
             SelfTimerSecondSeeder::class, // セルフタイマー
-            MeteringModeSeeder::class,    // 測光モード
             PhotoFormatSeeder::class,     // 静止画記録フォーマット
             VideoFormatSeeder::class,     // 動画記録フォーマット
             VideoCodecSeeder::class,      // 映像圧縮方式

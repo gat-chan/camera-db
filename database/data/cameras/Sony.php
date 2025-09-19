@@ -23,7 +23,7 @@ return [
     'iso_extended_min' => 50,
     'iso_extended_max' => 204800,
     'metering_method' => '1200分割ライブビュー分析測光',
-    'metering_mode_id' => 1,
+    'metering_mode' => 'マルチ, 中央重点, スポット, 画面全体平均, ハイライト重点',
     'exposure_value' => '±5.0 EV (1/3 EV、1/2 EV ステップ選択可能)',
     'shutter_electronic_min' => 30,
     'shutter_electronic_max' => 0.000125,
@@ -32,7 +32,8 @@ return [
     'drive_mode' => '1枚撮影, 連続撮影, セルフタイマー（1枚）, セルフタイマー（連続）, 連続ブラケット, 1枚ブラケット, フォーカスブラケット, ホワイトバランスブラケット, DROブラケット',
     'burst_mode_fps' => 'Hi+: 最高約10コマ/秒',
     'self_timer_second_id' => 1,
-    'white_balance_id' => 1,
+    'white_balance' => 'オート /  オート: 雰囲気優先 /  オート: ホワイト優先 / 太陽光 / 日陰 / 曇天 / 電球 / 蛍光灯: 温白色 / 蛍光灯: 白色 / 蛍光灯: 昼白色 / 蛍光灯: 昼光色 / 
+                         フラッシュ （静止画撮影時のみ） / 水中オート / 色温度/カラーフィルター / カスタム 1/カスタム 2/カスタム 3',
     'af_methods' => 'ファストハイブリッドAF (位相差検出方式 / コントラスト検出方式)',
     'af_points' => 759,
     'internal_memory_gb' => 0,
@@ -41,9 +42,9 @@ return [
     'photo_size_l_mb' => 33,
     'photo_size_m_mb' => 14,
     'photo_size_s_mb' => 8.2,
-    'photo_resolution_l' => 32741376,
-    'photo_resolution_m' => 14155776,
-    'photo_resolution_s' => 8185344,
+    'photo_resolution_l' => '7008 x 4672',
+    'photo_resolution_m' => '4608 x 3072',
+    'photo_resolution_s' => '3504 x 2336',
     'video_format_id' => 1,
     'video_codec_id' => 1,
     'video_resolution' => 8294400,
@@ -74,30 +75,10 @@ return [
       0 => 'ブラック',
       1 => 'シルバー',
     ],
-    'meteringModes' => 
-    [
-      0 => 'マルチパターン測光',
-      1 => 'スポット測光',
-      2 => 'ハイライト重点測光',
-      3 => '画面全体平均測光',
-      4 => '中央重点測光',
-    ],
     'selfTimerSeconds' => 
     [
       0 => '2秒',
       1 => '10秒',
-    ],
-    'whiteBalances' => 
-    [
-      0 => 'オート',
-      1 => '晴天 (太陽光)',
-      2 => '日陰',
-      3 => 'フラッシュ',
-      4 => '水中オート',
-      5 => '曇天 (くもり)',
-      6 => '白熱灯 (電球)',
-      7 => '蛍光灯 (暖色)',
-      8 => '蛍光灯 (寒色)',
     ],
     'recordingMedias' => 
     [
@@ -189,6 +170,7 @@ return [
     'iso_extended_min' => 50,
     'iso_extended_max' => 102400,
     'metering_method' => '1200分割ライブビュー分析測光',
+    'metering_mode' => 'マルチ, 中央重点, スポット, 画面全体平均, ハイライト重点',
     'exposure_value' => 'EV-3 - EV20',
     'shutter_electronic_min' => 30,
     'shutter_electronic_max' => 3.125E-5,
@@ -196,6 +178,8 @@ return [
     'shutter_mechanical_max' => 0.000125,
     'drive_mode' => 'AUTO/電子シャッター時: Hi+時: 最高約30コマ/秒、メカシャッター時: Hi+: 最高約10コマ/秒',
     'burst_mode_fps' => '30fps',
+    'white_balance' => ' オート /  オート: 雰囲気優先 /  オート: ホワイト優先 / 太陽光 / 日陰 / 曇天 / 電球 / 蛍光灯: 温白色 / 蛍光灯: 白色 / 蛍光灯: 昼白色 / 蛍光灯: 昼光色 / 
+                         フラッシュ （静止画撮影時のみ） / 水中オート / 色温度/カラーフィルター / カスタム 1/カスタム 2/カスタム 3',
     'temperature_low' => 2500,
     'temperature_high' => 9900,
     'af_methods' => 'ファストハイブリッドAF (位相差検出方式 / コントラスト検出方式)',
@@ -204,10 +188,10 @@ return [
     'photo_size_l_mb' => 50,
     'photo_size_m_mb' => 21,
     'photo_size_s_mb' => 12,
-    'photo_resolution_l' => 49766400,
-    'photo_resolution_m' => 21026304,
-    'photo_resolution_s' => 12441600,
-    'video_resolution' => 33177600,
+    'photo_resolution_l' => '8640 x 5760',
+    'photo_resolution_m' => '5616 x 3744',
+    'photo_resolution_s' => '4320 x 2880',
+    'video_resolution' => 'XAVC HS 8K:7680 x 4320, XAVC HS 4K:3840 x 2160, XAVC S HD:1920 x 1080',
     'audio_format' => 'LPCM 2ch (48 kHz 16 bit)、LPCM 2ch (48 kHz 24 bit) 、LPCM 4ch (48 kHz 24 bit)',
     'bluetooth' => 'Bluetooth 標準規格Ver. 5.0 (2.4 GHz帯)',
     'wifi' => 'Wi-Fiに準拠、IEEE 802.11a/b/g/n/ac (2.4 GHz帯/5 GHz帯)',
@@ -232,31 +216,10 @@ return [
     [
       0 => 'ブラック',
     ],
-    'meteringModes' => 
-    [
-      0 => 'マルチパターン測光',
-      1 => '中央重点測光',
-      2 => 'スポット測光',
-      3 => '画面全体平均測光',
-      4 => 'ハイライト重点測光',
-    ],
     'selfTimerSeconds' => 
     [
       0 => '5秒',
       1 => '10秒',
-    ],
-    'whiteBalances' => 
-    [
-      0 => 'オート',
-      1 => '晴天 (太陽光)',
-      2 => '曇天 (くもり)',
-      3 => '日陰',
-      4 => '白熱灯 (電球)',
-      5 => '色温度マニュアル',
-      6 => '水中オート',
-      7 => 'フラッシュ',
-      8 => '蛍光灯 (寒色)',
-      9 => '蛍光灯 (暖色)',
     ],
     'recordingMedias' => 
     [
@@ -340,6 +303,309 @@ return [
     [
       'price' => 990000,
       'price_data' => '2025-08-27',
+    ],
+  ],
+  2 => 
+  [
+    'camera_name' => 'α1',
+    'model_number' => 'ILCE-1',
+    'release_year' => '2021-03-19',
+    'total_pixels' => 5050,
+    'effective_pixels' => 5010,
+    'sensor_width_mm' => 35.9,
+    'sensor_height_mm' => 24,
+    'image_sensor' => 'Exmor RS CMOSセンサー',
+    'image_processor' => 'BIONZ XR',
+    'viewfinder_type' => '電子式ビューファインダー (Quad-XGA OLED)',
+    'viewfinder_coverage' => '100',
+    'viewfinder_magnification' => '0.90',
+    'lcd_type' => '液晶モニター',
+    'lcd_size_inch' => 3,
+    'lcd_resolution_dots' => 1440000,
+    'iso_standard_min' => 100,
+    'iso_standard_max' => 32000,
+    'iso_extended_min' => 50,
+    'iso_extended_max' => 102400,
+    'metering_method' => '1200分割ライブビュー分析測光',
+    'metering_mode' => 'マルチ, 中央重点, スポット, 画面全体平均, ハイライト重点',
+    'exposure_value' => '±5.0EV (1/3EV、1/2EV ステップ選択可能) (ダイヤル操作時: ±3EV (1/3EV ステップ))',
+    'shutter_electronic_min' => 30,
+    'shutter_electronic_max' => 3.125E-5,
+    'shutter_mechanical_min' => 30,
+    'shutter_mechanical_max' => 0.000125,
+    'drive_mode' => '1枚撮影、連続撮影 (Hi+/Hi/Mid/Lo切り替え可)、セルフタイマー、セルフタイマー (連続)、1枚ブラケット、連続ブラケット、ホワイトバランスブラケット、DROブラケット',
+    'burst_mode_fps' => '30fps',
+    'white_balance' => ' オート /  オート: 雰囲気優先 /  オート: ホワイト優先 / 太陽光 / 日陰 / 曇天 / 電球 / 蛍光灯: 温白色 / 蛍光灯: 白色 / 蛍光灯: 昼白色 / 蛍光灯: 昼光色 / 
+                         フラッシュ / 水中オート / 色温度/カラーフィルター / カスタム 1/カスタム 2/カスタム 3',
+    'af_methods' => 'ファストハイブリッドAF (位相差検出方式 / コントラスト検出方式)',
+    'af_points' => 759,
+    'card_slot_count' => 2,
+    'photo_size_l_mb' => 49.7,
+    'photo_size_m_mb' => 21,
+    'photo_size_s_mb' => 12.4,
+    'photo_resolution_l' => '8640 x 5760',
+    'photo_resolution_m' => '5616 x 3744',
+    'photo_resolution_s' => '4320 x 2880',
+    'video_resolution' => 'XAVC HS 8K:7680 x 4320, XAVC HS 4K:3840 x 2160, XAVC S HD:1920 x 1080',
+    'audio_format' => 'LPCM 2ch（48kHz 16bit）、LPCM 2ch（48kHz 24bit）、LPCM 4ch（48kHz 24bit）、MPEG-4 AAC-LC 2ch',
+    'bluetooth' => 'Bluetooth 標準規格Ver. 5.0 (2.4GHz帯)',
+    'wifi' => 'Wi-Fiに準拠、IEEE 802.11a/b/g/n/ac (2.4GHz帯/5GHz帯)',
+    'microphone' => 'ステレオマイク内蔵',
+    'speaker' => 'モノラルスピーカー内蔵',
+    'battery_type' => 'NP-FZ100',
+    'battery_capacity_mAh' => 2280,
+    'battery_weight_g' => 83,
+    'shots_per_charge' => 530,
+    'operating_temp_min_c' => 0,
+    'operating_temp_max_c' => 40,
+    'body_width' => 128.9,
+    'body_height' => 96.9,
+    'body_depth' => 80.8,
+    'body_weight_g' => 652,
+    'body_total_weight_g' => 737,
+    'manufacturer_name' => 'Sony',
+    'camera_type_name' => 'ミラーレス',
+    'lens_mount_name' => 'ソニーEマウント',
+    'sensor_type_name' => 'フルサイズ',
+    'colorOptions' => 
+    [
+      0 => 'ブラック',
+    ],
+    'selfTimerSeconds' => 
+    [
+      0 => '10秒',
+      1 => '5秒',
+      2 => '2秒',
+    ],
+    'recordingMedias' => 
+    [
+      0 => 'SD',
+      1 => 'SDHC',
+      2 => 'SDXC',
+      3 => 'CFexpress card type B',
+      4 => 'UHS-I対応',
+      5 => 'UHS-II対応',
+    ],
+    'photoFormats' => 
+    [
+      0 => 'JPEG',
+      1 => 'HEIF',
+      2 => 'RAW',
+    ],
+    'videoFormats' => 
+    [
+      0 => 'XAVC HS',
+      1 => 'XAVC S',
+    ],
+    'videoCodecs' => 
+    [
+      0 => 'H.264 (MPEG-4 Part 10/AVC)',
+      1 => 'H.265 (MPEG-H Part 2/HEVC)',
+    ],
+    'interfaceModels' => 
+    [
+      0 => 'ホットシュー（電子接点有）',
+      1 => 'シンクロターミナル/タイムコード端子',
+      2 => 'USB 3.1 Gen1 Type C',
+      3 => 'HDMI端子 2.1 Type A',
+      4 => 'オーディオ アウト3.5 mm',
+      5 => 'オーディオ イン3.5 mm',
+      6 => 'LAN端子',
+    ],
+    'accessories' => 
+    [
+    ],
+    'displayLanguages' => 
+    [
+    ],
+    'features' => 
+    [
+      0 => '防塵・防滴',
+      1 => '手ブレ補正機構',
+      2 => '5軸手ブレ補正',
+      3 => 'タッチパネル',
+      4 => 'ゴミ取り機構',
+      5 => 'ライブビュー',
+      6 => 'UBS充電',
+      7 => 'RAW+JPEG同時記録',
+      8 => 'バルブ',
+      9 => 'Wi-Fi',
+      10 => 'NFC',
+      11 => 'ピーキング表示',
+    ],
+    'battery_data' => 
+    [
+      'battery_type' => 'NP-FZ100',
+      'battery_capacity_mAh' => 2280,
+      'battery_weight_g' => 83,
+    ],
+    'price_history' => 
+    [
+      'price' => 880000,
+      'price_data' => '2025-09-18',
+    ],
+  ],
+  3 => 
+  [
+    'camera_name' => 'α9 III',
+    'model_number' => 'ILCE-9M3',
+    'release_year' => '2024-01-26',
+    'color_option_id' => 1,
+    'total_pixels' => 2520,
+    'effective_pixels' => 2460,
+    'sensor_width_mm' => 35.6,
+    'sensor_height_mm' => 23.8,
+    'image_sensor' => 'Exmor RS CMOSセンサー',
+    'image_processor' => 'BIONZ XR',
+    'viewfinder_type' => '電子式ビューファインダー (Quad-XGA OLED)',
+    'viewfinder_magnification' => '0.90',
+    'lcd_type' => '液晶モニター TFT駆動',
+    'lcd_size_inch' => 3.2,
+    'lcd_resolution_dots' => 2095104,
+    'iso_standard_min' => 250,
+    'iso_standard_max' => 25600,
+    'iso_extended_min' => 125,
+    'iso_extended_max' => 51200,
+    'metering_method' => '1200分割ライブビュー分析測光',
+    'metering_mode' => 'マルチ, 中央重点, スポット, 画面全体平均, ハイライト重点',
+    'exposure_value' => 'EV-3 - EV20',
+    'shutter_electronic_min' => 30,
+    'shutter_electronic_max' => 1.25E-5,
+    'drive_mode' => '1枚撮影, 連続撮影, セルフタイマー,  ブラケット',
+    'burst_mode_fps' => '120fps',
+    'self_timer_second_id' => 1,
+    'white_balance' => 'オート / オート: 雰囲気優先 / オート: ホワイト優先 / 太陽光 / 日陰 / 曇天 / 電球 / 蛍光灯: 温白色 / 蛍光灯: 白色 / 蛍光灯: 昼白色 / 蛍光灯: 昼光色 / フラッシュ （静止画撮影時のみ）/ 水中オート/ 色温度/カラーフィルター / カスタム 1/カスタム 2/カスタム 3',
+    'temperature_low' => 2500,
+    'temperature_high' => 9900,
+    'af_methods' => 'ファストハイブリッドAF (位相差検出方式 / コントラスト検出方式)',
+    'af_points' => 759,
+    'card_slot_count' => 2,
+    'photo_format_id' => 1,
+    'photo_size_l_mb' => 24,
+    'photo_size_m_mb' => 10,
+    'photo_size_s_mb' => 6,
+    'photo_resolution_l' => '6000 x 4000',
+    'photo_resolution_m' => '3936 x 2632',
+    'photo_resolution_s' => '3008 x 2000',
+    'video_format_id' => 1,
+    'video_codec_id' => 1,
+    'video_resolution' => 'XAVC HS 4K 3840 x 2160, XAVC S HD 1920 x 1080',
+    'audio_format' => 'LPCM 2ch (48 kHz 16 bit)、LPCM 2ch (48 kHz 24 bit) 、LPCM 4ch (48 kHz 24 bit)',
+    'interface_model_id' => 1,
+    'bluetooth' => 'Bluetooth 標準規格Ver. 5.0 (2.4 GHz帯)',
+    'wifi' => 'Wi-Fiに準拠、IEEE 802.11a/b/g/n/ac (2.4 GHz帯/5 GHz帯)',
+    'microphone' => 'ステレオマイク内蔵、ボイスメモマイク内蔵',
+    'speaker' => 'モノラルスピーカー内蔵',
+    'battery_type' => 'NP-FZ100',
+    'battery_capacity_mAh' => 2280,
+    'battery_weight_g' => 83,
+    'shots_per_charge' => 520,
+    'operating_temp_min_c' => 0,
+    'operating_temp_max_c' => 40,
+    'body_width' => 136.1,
+    'body_height' => 96.9,
+    'body_depth' => 82.9,
+    'body_weight_g' => 618,
+    'body_total_weight_g' => 703,
+    'accessory_id' => 1,
+    'display_language_id' => 1,
+    'meteringMode_ids' => 
+    [
+    ],
+    'whiteBalanceIds' => 
+    [
+    ],
+    'manufacturer_name' => 'Sony',
+    'camera_type_name' => '一眼レフ',
+    'lens_mount_name' => 'ソニーEマウント',
+    'sensor_type_name' => 'フルサイズ',
+    'colorOptions' => 
+    [
+      0 => 'ブラック',
+    ],
+    'selfTimerSeconds' => 
+    [
+      0 => '10秒',
+      1 => '5秒',
+      2 => '2秒',
+    ],
+    'recordingMedias' => 
+    [
+      0 => 'SD',
+      1 => 'UHS-II対応',
+      2 => '不明',
+      3 => 'SDXC',
+      4 => 'SDHC',
+      5 => 'CFexpress card type A',
+      6 => 'UHS-I対応',
+    ],
+    'photoFormats' => 
+    [
+      0 => 'JPEG',
+      1 => 'HEIF',
+      2 => 'RAW',
+    ],
+    'videoFormats' => 
+    [
+      0 => 'XAVC S',
+      1 => 'XAVC HS',
+    ],
+    'videoCodecs' => 
+    [
+      0 => 'H.264 (MPEG-4 Part 10/AVC)',
+      1 => 'H.265 (MPEG-H Part 2/HEVC)',
+    ],
+    'interfaceModels' => 
+    [
+      0 => 'ホットシュー（電子接点有）',
+      1 => 'シンクロターミナル/タイムコード端子',
+      2 => 'USB 3.1 Gen1 Type C',
+      3 => 'HDMI端子 2.1 Type A',
+      4 => 'オーディオ アウト3.5 mm',
+      5 => 'オーディオ イン3.5 mm',
+      6 => 'LAN端子',
+    ],
+    'accessories' => 
+    [
+      0 => 'バッテリーチャージャー',
+      1 => 'バッテリー',
+      2 => 'ストラップ',
+      3 => 'ボディキャップ',
+      4 => 'ホットシューカバー',
+      5 => 'アイピースカップ',
+      6 => 'ケーブルプロテクター',
+      7 => '電源コード',
+    ],
+    'displayLanguages' => 
+    [
+      0 => '日本語',
+    ],
+    'features' => 
+    [
+      0 => '防塵・防滴',
+      1 => '手ブレ補正機構',
+      2 => '5軸手ブレ補正',
+      3 => '自分撮り機能',
+      4 => 'タッチパネル',
+      5 => 'ゴミ取り機構',
+      6 => 'タイムラプス',
+      7 => 'ライブビュー',
+      8 => 'UBS充電',
+      9 => 'RAW+JPEG同時記録',
+      10 => 'バルブ',
+      11 => 'Wi-Fi',
+      12 => 'ピーキング表示',
+    ],
+    'battery_data' => 
+    [
+      'battery_type' => 'NP-FZ100',
+      'battery_capacity_mAh' => 2280,
+      'battery_weight_g' => 83,
+    ],
+    'price_history' => 
+    [
+      'price' => 935000,
+      'price_data' => '2025-09-19',
     ],
   ],
 ];

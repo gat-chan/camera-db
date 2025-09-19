@@ -225,21 +225,20 @@
         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 text-gray-600"
         @click.self="closeModal"
         >
-        <div class="bg-white rounded-lg p-6 w-full max-w-3xl h-[50vh] shadow-lg flex flex-col md:flex-row gap-6 overflow-hidden">
-          
+        <div
+          class="bg-white rounded-lg p-4 sm:p-6 w-full max-w-3xl max-h-[90vh] shadow-lg flex flex-col md:flex-row gap-4 sm:gap-6 overflow-auto"
+        >
           <!-- 左: 画像 -->
-          <div class="md:w-1/2 w-full flex flex-col items-center justify-center h-full">
-            <!-- メイン画像 -->
-            <div class="w-full h-full flex items-center justify-center">
+          <div class="md:w-1/2 w-full flex flex-col items-center justify-start">
+            <div class="w-full flex items-center justify-center">
               <img
                 :src="selectedImage"
                 alt="カメラ画像"
-                class="max-w-full max-h-full object-contain rounded"
+                class="max-w-full max-h-[60vh] object-contain rounded"
                 v-if="selectedImage"
               />
             </div>
 
-            <!-- サムネイル -->
             <div v-if="cameraThumbnails.length" class="flex flex-wrap gap-2 justify-center mt-2">
               <img
                 v-for="(thumb, index) in cameraThumbnails"
@@ -254,51 +253,41 @@
           </div>
 
           <!-- 右: 詳細情報 -->
-          <div class="md:w-1/2 w-full h-full overflow-y-auto pr-2">
-            <h2 class="text-2xl font-bold mb-3">{{ selectedCamera.camera_name || '不明' }}</h2>
-            <p class="mb-2">メーカー: {{ selectedCamera.manufacturer?.name_ja || '不明' }}</p>
-            <p class="mb-2">型番: {{ selectedCamera.model_number || '不明' }}</p>
-            <p class="mb-2">価格: {{ selectedCamera.price ? '¥' + selectedCamera.price.toLocaleString() : '価格不明' }}</p>
-            <p class="mb-2">カメラタイプ: {{ selectedCamera.camera_type?.name_ja || '不明' }}</p>
-            <p class="mb-2">センサータイプ: {{ selectedCamera.sensor_type?.name_ja || '不明' }}</p>
-            <p class="mb-2">有効画素数: {{ selectedCamera.effective_pixels ? selectedCamera.effective_pixels + ' 万画素' : '不明' }}</p>
-            <p class="mb-2">ISO感度: {{ selectedCamera.iso_standard_min || '不明' }} ~ {{ selectedCamera.iso_standard_max || '不明' }}</p>
-            <p class="mb-2">
+          <div class="md:w-1/2 w-full h-full overflow-y-auto">
+            <h2 class="text-xl sm:text-2xl font-bold mb-3">{{ selectedCamera.camera_name || '不明' }}</h2>
+            <p class="mb-1">メーカー: {{ selectedCamera.manufacturer?.name_ja || '不明' }}</p>
+            <p class="mb-1">型番: {{ selectedCamera.model_number || '不明' }}</p>
+            <p class="mb-1">価格: {{ selectedCamera.price ? '¥' + selectedCamera.price.toLocaleString() : '価格不明' }}</p>
+            <p class="mb-1">カメラタイプ: {{ selectedCamera.camera_type?.name_ja || '不明' }}</p>
+            <p class="mb-1">センサータイプ: {{ selectedCamera.sensor_type?.name_ja || '不明' }}</p>
+            <p class="mb-1">有効画素数: {{ selectedCamera.effective_pixels ? selectedCamera.effective_pixels + ' 万画素' : '不明' }}</p>
+            <p class="mb-1">ISO感度: {{ selectedCamera.iso_standard_min || '不明' }} ~ {{ selectedCamera.iso_standard_max || '不明' }}</p>
+            <p class="mb-1">
               シャッタースピード:
               {{ formatShutter(selectedCamera.shutter_mechanical_min) }}
               ~
               {{ formatShutter(selectedCamera.shutter_mechanical_max) }}
             </p>
-            <p class="mb-2">重量: {{ selectedCamera.body_weight_g ? selectedCamera.body_weight_g + ' g' : '不明' }}</p>
+            <p class="mb-1">重量: {{ selectedCamera.body_weight_g ? selectedCamera.body_weight_g + ' g' : '不明' }}</p>
 
-            <div v-if="selectedCamera.features?.length">
-              <p class="font-semibold mt-4">特徴:</p>
-              <ul class="grid grid-cols-2 gap-x-6 list-disc list-inside text-sm">
+            <div v-if="selectedCamera.features?.length" class="mt-2">
+              <p class="font-semibold">特徴:</p>
+              <ul class="grid grid-cols-2 gap-x-4 list-disc list-inside text-sm">
                 <li v-for="f in selectedCamera.features" :key="f.id">{{ f.name_ja }}</li>
               </ul>
             </div>
 
-            <!-- モーダル内のボタン部分 -->
-            <div class="flex gap-4 mt-6">
-              <!-- 閉じるボタン -->
-              <button
-                @click="closeModal"
-                class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800"
-              >
+            <div class="flex gap-2 mt-4 flex-wrap">
+              <button @click="closeModal" class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800">
                 閉じる
               </button>
-
-              <!-- 詳細ページボタン -->
-              <Link
-                :href="route('camera-detail', selectedCamera.id)"
-                class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-              >
+              <Link :href="route('camera-detail', selectedCamera.id)" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
                 詳細ページへ
               </Link>
             </div>
-
           </div>
         </div>
+
       </div>
 
     </div>
@@ -463,13 +452,15 @@ const filters = ref({
   sensor_type_ids:  props.filters?.sensor_type_ids  || [],
   video_format_ids: props.filters?.video_format_ids || [],
   price_range:      props.filters?.price_range || [50000, 2000000],
-  weight_range:     props.filters?.weight_range || [100, 1200],
+  weight_range:     props.filters?.weight_range || [100, 1500],
   release_year:     props.filters?.release_year || 2000,
-  effective_pixels: props.filters?.effective_pixels || 8000,
+  effective_pixels: props.filters?.effective_pixels || 10000,
   iso_min:          props.filters?.iso_min || null,
   iso_max:          props.filters?.iso_max || null,
   keyword:          props.filters?.keyword || '',
 })
+
+console.log("props.filters.weight_range:", props.filters?.weight_range)
 
 const searchCameras = () => {
   console.log('検索条件:', filters.value)

@@ -23,9 +23,11 @@ export default {
             },
             animation: {
                 'fade-in-float': 'fadeInFloat 1s ease-out forwards',
+                'fade-in-up': 'fade-in-up 1s ease-out forwards',
             },
         },
     },
 
     plugins: [forms],
 };
+

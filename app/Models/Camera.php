@@ -37,7 +37,7 @@ class Camera extends Model
         'iso_extended_min',
         'iso_extended_max',
         'metering_method',
-        'metering_mode_id',
+        'metering_mode',
         'exposure_value',
         'shutter_electronic_min',
         'shutter_electronic_max',
@@ -46,7 +46,7 @@ class Camera extends Model
         'drive_mode',
         'burst_mode_fps',
         'self_timer_second_id',
-        'white_balance_id',
+        'white_balance',
         'recording_media_id',
         'photo_format_id',
         'video_format_id',
@@ -110,19 +110,9 @@ class Camera extends Model
         return $this->belongsToMany(ColorOption::class, 'camera_color_option');
     }
 
-    public function meteringModes()
-    {
-        return $this->belongsToMany(MeteringMode::class, 'camera_metering_mode');
-    }
-
     public function selfTimerSeconds()
     {
         return $this->belongsToMany(SelfTimerSecond::class, 'camera_self_timer_second');
-    }
-
-    public function whiteBalances()
-    {
-        return $this->belongsToMany(WhiteBalance::class, 'camera_white_balance');
     }
 
     public function recordingMedias()

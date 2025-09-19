@@ -206,19 +206,16 @@
 
             <!-- 測光モード -->
             <div class="mb-4 md:col-span-6">
-              <summary class="cursor-pointer font-semibold">測光モード</summary>
-              <div v-for="meteringMode in meteringModes" :key="meteringMode.id">
-                <label class="inline-flex items-center">
-                  <input type="checkbox" :value="meteringMode.id" v-model="form.meteringMode_ids" class="mr-2">
-                  {{ meteringMode.name_ja }}
-                </label>
-              </div>
+              <label for="name" class="block">測光モード</label>
+              <input v-model="form.metering_mode" type="text" 
+              placeholder="マルチ測光、中央重点測光、" id="metering_mode" class="border rounded w-full p-2 text-black">
             </div>
 
             <!-- 露出補正 -->
             <div class="mb-4 md:col-span-6">
               <label class="block">露出補正</label>
-              <input v-model="form.exposure_value" type="text" class="border rounded w-full p-2 text-black">
+              <input v-model="form.exposure_value" type="text" 
+              placeholder="±5.0EV" class="border rounded w-full p-2 text-black">
             </div>
 
             <!-- 電子シャッター速度（低） -->
@@ -271,14 +268,10 @@
             </div>
 
             <!-- ホワイトバランス -->
-            <div class="mb-4 md:col-span-3">
-              <summary class="cursor-pointer font-semibold">ホワイトバランス</summary>
-              <div v-for="whiteBalance in whiteBalances" :key="whiteBalance.id">
-                <label class="inline-flex items-center">
-                  <input type="checkbox" :value="whiteBalance.id" v-model="form.whiteBalanceIds" class="mr-2">
-                  {{ whiteBalance.name_ja }}
-                </label>
-              </div>
+            <div class="mb-4 md:col-span-6">
+              <label for="name" class="block">ホワイトバランス</label>
+              <input v-model="form.white_balance" type="text" 
+              placeholder="オート / 太陽光 / 日陰 / 曇天 / 電球 /" id="white_balance" class="border rounded w-full p-2 text-black">
             </div>
 
             <!-- 色温度（低） -->
@@ -410,7 +403,7 @@
             <!-- 動画記録画素数 -->
             <div class="mb-4 md:col-span-6">
               <label class="block">動画記録画素数</label>
-              <input v-model="form.video_resolution" type="number" class="border rounded w-full p-2 text-black">
+              <input v-model="form.video_resolution" type="text" class="border rounded w-full p-2 text-black">
             </div>
 
             <!-- 音声記録フォーマット -->
@@ -620,9 +613,7 @@ const {
   lensMounts,
   sensorTypes,
   colorOptions,
-  meteringModes,
   selfTimerSeconds,
-  whiteBalances,
   recordingMedias,
   photoFormats,
   videoFormats,
@@ -657,23 +648,6 @@ const parseShutterSpeed = (value) => {
   return Number(value) || null
 }
 
-// 記録解像度入力変換
-// "8640x5760" → 49766400
-// "8640 x 5760" → 49766400
-// "49766400" → 49766400
-const parseResolution = (value) => {
-  if (!value) return null
-  const cleaned = value.replace(/\s+/g, '').replace(/,/g, '') // スペースとカンマを削除
-
-  if (cleaned.includes("x") || cleaned.includes("X")) {
-    const [w, h] = cleaned.toLowerCase().split("x").map(Number)
-    return (w && h) ? w * h : null
-  }
-
-  const num = Number(cleaned)
-  return isNaN(num) ? null : num
-}
-
 const submit = () => {
   const manufacturer = manufacturers.find(m => m.id === form.value.manufacturer_id)
   const cameraType = cameraTypes.find(c => c.id === form.value.camera_type_id)
@@ -684,10 +658,6 @@ const submit = () => {
   form.value.shutter_electronic_max = parseShutterSpeed(form.value.shutter_electronic_max)
   form.value.shutter_mechanical_min = parseShutterSpeed(form.value.shutter_mechanical_min)
   form.value.shutter_mechanical_max = parseShutterSpeed(form.value.shutter_mechanical_max)
-
-  form.value.photo_resolution_l     = parseResolution(form.value.photo_resolution_l)
-  form.value.photo_resolution_m     = parseResolution(form.value.photo_resolution_m)
-  form.value.photo_resolution_s     = parseResolution(form.value.photo_resolution_s)
 
   const mapIdsToNames = (ids, source) => ids.map(id => {
     const item = source.find(i => Number(i.id) === Number(id))
@@ -701,11 +671,8 @@ const submit = () => {
     lens_mount_name: lensMount?.name_ja || '',
     sensor_type_name: sensorType?.name_ja || '',
 
-
     colorOptions:     mapIdsToNames(form.value.colorOptionIds, colorOptions),
-    meteringModes:    mapIdsToNames(form.value.meteringMode_ids, meteringModes),
     selfTimerSeconds: mapIdsToNames(form.value.selfTimerSecondIds, selfTimerSeconds),
-    whiteBalances:    mapIdsToNames(form.value.whiteBalanceIds, whiteBalances),
     recordingMedias:  mapIdsToNames(form.value.recordingMediaIds, recordingMedias),
     photoFormats:     mapIdsToNames(form.value.photoFormat_ids, photoFormats),
     videoFormats:     mapIdsToNames(form.value.videoFormat_ids, videoFormats),
@@ -731,8 +698,8 @@ const submit = () => {
 
   // 不要キー削除
   const removeKeys = [
-    'manufacturer_id', 'camera_type_id', 'lens_mount_id', 'price', 'price_data', 'sensor_type_id', 
-    'colorOptionIds', 'meteringMode_ids', 'selfTimerSecondIds', 'whiteBalanceIds', 'recordingMediaIds', 
+    'manufacturer_id', 'camera_type_id', 'lens_mount_id', 'price', 'price_data', 
+    'sensor_type_id', 'colorOptionIds', 'selfTimerSecondIds', 'recordingMediaIds', 
     'photoFormat_ids', 'videoFormat_ids', 'videoCodec_ids', 'interfaceModel_ids', 
     'accessory_ids', 'displayLanguageIds', 'feature_ids',
   ]
@@ -783,7 +750,7 @@ const form = ref({
   iso_extended_min: '',
   iso_extended_max: '',
   metering_method: '',
-  metering_mode_id: null,
+  metering_mode: '',
   exposure_value: '',
   shutter_electronic_min: '',
   shutter_electronic_max: '',
@@ -792,7 +759,7 @@ const form = ref({
   drive_mode: '',
   burst_mode_fps: '',
   self_timer_second_id: null,
-  white_balance_id: null,
+  white_balance: '',
   temperature_low: '',
   temperature_high: '',
   af_methods: '',
@@ -921,16 +888,6 @@ const sensorTypeOptions = ref([
   { id: 10, name: 'CX（ニコン1型）' },
 ])
 
-const meteringModeOptions = ref([
-  { id: 1, name: 'マルチパターン測光' },
-  { id: 2, name: '評価測光' },
-  { id: 3, name: 'スポット測光' },
-  { id: 4, name: '部分測光' },
-  { id: 5, name: '中央重点測光' },
-  { id: 6, name: 'ハイライト重点' },
-  { id: 7, name: '画面全体平均測光' },
-])
-
 const selfTimerSecondOptions = ref([
   { id: 1, name: '2秒' },
   { id: 2, name: '3秒' },
@@ -942,26 +899,14 @@ const selfTimerSecondOptions = ref([
   { id: 8, name: '30秒' },
 ])
 
-const whiteBalanceOptions = ref([
-  { id: 1,  name: 'オート' },
-  { id: 2,  name: '晴天 (太陽光)' },
-  { id: 3,  name: '曇天 (くもり)' },
-  { id: 4,  name: '日陰' },
-  { id: 5,  name: '白熱灯 (電球)' },
-  { id: 6,  name: '蛍光灯 (暖色)' },
-  { id: 7,  name: '蛍光灯 (寒色)' },
-  { id: 8,  name: 'フラッシュ' },
-  { id: 9,  name: '水中オート' },
-  { id: 10, name: '色温度マニュアル' },
-])
-
 const recordingMediaOptions = ref([
   { id: 1, name: 'SD', name_en: 'SD' },
   { id: 2, name: 'SDHC', name_en: 'SDHC' },
   { id: 3, name: 'SDXC', name_en: 'SDXC' },
-  { id: 5, name: 'CFexpress card type B', name_en: 'CFexpress card type B' },
-  { id: 6, name: 'UHS-I対応', name_en: 'UHS-I' },
-  { id: 7, name: 'UHS-II対応', name_en: 'UHS-II' },
+  { id: 5, name: 'CFexpress card type A', name_en: 'CFexpress card type A' },
+  { id: 6, name: 'CFexpress card type B', name_en: 'CFexpress card type B' },
+  { id: 7, name: 'UHS-I対応', name_en: 'UHS-I' },
+  { id: 8, name: 'UHS-II対応', name_en: 'UHS-II' },
 ])
 
 const photoFormatOptions = ref([
@@ -1014,12 +959,13 @@ const interfaceModelOptions = ref([
 const accessoryOptions = ref([
   { id: 1, name: 'バッテリー' },
   { id: 2, name: 'バッテリーチャージャー' },
-  { id: 3, name: 'ストラップ' },
-  { id: 4, name: 'ボディキャップ' },
-  { id: 5, name: 'ホットシューカバー' },
-  { id: 6, name: 'USBケーブル' },
-  { id: 7, name: 'ケーブルプロテクター' },
-  { id: 8, name: 'アイピースカップ' },
+  { id: 3, name: '電源コード' },
+  { id: 4, name: 'ストラップ' },
+  { id: 5, name: 'ボディキャップ' },
+  { id: 6, name: 'ホットシューカバー' },
+  { id: 7, name: 'USBケーブル' },
+  { id: 8, name: 'ケーブルプロテクター' },
+  { id: 9, name: 'アイピースカップ' },
 ])
 
 const displayLanguageOptions = ref([
@@ -1070,10 +1016,12 @@ const resolveIdFromName = (options, targetName) => {
 // Seederから取得してフォームに反映
 const fetchFromSeeder = async () => {
   try {
+    console.log('🟢 fetchFromSeeder 開始')
     const selectedManufacturer = manufacturerOptions.value.find(
       (m) => m.id === manufacturerInput.value
     )
     const manufacturerNameEn = selectedManufacturer?.name_en || ''
+    console.log('🟢 選択されたメーカー (英語):', manufacturerNameEn)
 
     const { data } = await axios.get('/camera-seed', {
       params: {
@@ -1081,13 +1029,18 @@ const fetchFromSeeder = async () => {
         model_number: modelNumberInput.value,
       },
     })
+    console.log('🟢 Axios レスポンス取得:', data)
 
-    console.log('Seederからの色オプション:', data.colorOptions)
-    console.log('Seederからの表示言語:', data.displayLanguages)
+    // console.log('Seederからの色オプション:', data.colorOptions)
+    // console.log('Seederからの表示言語:', data.displayLanguages)
 
     // 直接反映できる項目
+    form.value.manufacturer_id          = resolveIdFromName(manufacturerOptions.value,    data.manufacturer_name)
+    form.value.camera_type_id           = resolveIdFromName(cameraTypeOptions.value,      data.camera_type_name)
+    form.value.lens_mount_id            = resolveIdFromName(lensMountOptions.value,       data.lens_mount_name)
     form.value.camera_name              = data.camera_name
     form.value.model_number             = data.model_number
+    form.value.sensor_type_id           = resolveIdFromName(sensorTypeOptions.value,      data.sensor_type_name)
     form.value.release_year             = data.release_year ?? ''
     form.value.discontinued_year        = data.discontinued_year ?? ''
     form.value.effective_pixels         = data.effective_pixels
@@ -1107,6 +1060,7 @@ const fetchFromSeeder = async () => {
     form.value.iso_extended_min         = data.iso_extended_min ?? ''
     form.value.iso_extended_max         = data.iso_extended_max ?? ''
     form.value.metering_method          = data.metering_method ?? ''
+    form.value.metering_mode            = data.metering_mode ?? ''
     form.value.exposure_value           = data.exposure_value ?? ''
     form.value.shutter_electronic_min   = data.shutter_electronic_min ?? ''
     form.value.shutter_electronic_max   = data.shutter_electronic_max ?? ''
@@ -1114,6 +1068,7 @@ const fetchFromSeeder = async () => {
     form.value.shutter_mechanical_max   = data.shutter_mechanical_max ?? ''
     form.value.drive_mode               = data.drive_mode ?? ''
     form.value.burst_mode_fps           = data.burst_mode_fps ?? ''
+    form.value.white_balance            = data.white_balance ?? ''
     form.value.temperature_low          = data.temperature_low ?? ''
     form.value.temperature_high         = data.temperature_high ?? ''
     form.value.af_methods               = data.af_methods ?? ''
@@ -1145,14 +1100,8 @@ const fetchFromSeeder = async () => {
     form.value.body_total_weight_g      = data.body_total_weight_g ?? ''
 
     // 名前 → ID 変換で反映する項目（nameしか来ない）
-    form.value.manufacturer_id      = resolveIdFromName(manufacturerOptions.value,    data.manufacturer_name)
-    form.value.camera_type_id       = resolveIdFromName(cameraTypeOptions.value,      data.camera_type_name)
-    form.value.lens_mount_id        = resolveIdFromName(lensMountOptions.value,       data.lens_mount_name)
-    form.value.sensor_type_id       = resolveIdFromName(sensorTypeOptions.value,      data.sensor_type_name)
     form.value.color_option_id      = resolveIdFromName(colorOptionOptions.value,     data.color_option_name)
-    form.value.metering_mode_id     = resolveIdFromName(meteringModeOptions.value,    data.metering_mode_name)
     form.value.self_timer_second_id = resolveIdFromName(selfTimerSecondOptions.value, data.self_timer_second_name)
-    form.value.white_balance_id     = resolveIdFromName(whiteBalanceOptions.value,    data.white_balance_name)
     form.value.recording_media_id   = resolveIdFromName(recordingMediaOptions.value,  data.recording_media_name)
     form.value.photo_format_id      = resolveIdFromName(photoFormatOptions.value,     data.photo_format_name)
     form.value.video_format_id      = resolveIdFromName(videoFormatOptions.value,     data.video_format_name)
@@ -1165,8 +1114,8 @@ const fetchFromSeeder = async () => {
     //多対多の反映
     // 文字列の名前の配列 → ID配列に変換するヘルパー関数
     const resolveIdsFromNames = (names, options) => {
-      console.log('🛠 名前配列:', names)
-      console.log('🛠 選択肢:', options)
+      // console.log('🛠 名前配列:', names)
+      // console.log('🛠 選択肢:', options)
       return names.map(name => {
         const match = options.find(opt => opt.name === name || opt.name_ja === name || opt.name_en === name)
         console.log(`🔍 '${name}' に一致するID:`, match?.id ?? 'なし')
@@ -1176,9 +1125,7 @@ const fetchFromSeeder = async () => {
 
     // 多対多項目のID配列に変換して反映
     form.value.colorOptionIds     = resolveIdsFromNames(data.colorOptions || [],     colorOptionOptions.value)
-    form.value.meteringMode_ids   = resolveIdsFromNames(data.meteringModes || [],    meteringModeOptions.value)
     form.value.selfTimerSecondIds = resolveIdsFromNames(data.selfTimerSeconds || [], selfTimerSecondOptions.value)
-    form.value.whiteBalanceIds    = resolveIdsFromNames(data.whiteBalances || [],    whiteBalanceOptions.value)
     form.value.recordingMediaIds  = resolveIdsFromNames(data.recordingMedias || [],  recordingMediaOptions.value) 
     form.value.photoFormat_ids    = resolveIdsFromNames(data.photoFormats || [],     photoFormatOptions.value)
     form.value.videoFormat_ids    = resolveIdsFromNames(data.videoFormats || [],     videoFormatOptions.value)
@@ -1188,8 +1135,8 @@ const fetchFromSeeder = async () => {
     form.value.displayLanguageIds = resolveIdsFromNames(data.displayLanguages || [], displayLanguageOptions.value)
     form.value.feature_ids        = resolveIdsFromNames(data.features || [],         featureOptions.value)
 
-    console.log('変換後のID配列(colorOptionIds):', form.value.colorOptionIds)
-    console.log('変換後のID配列(displayLanguageIds):', form.value.displayLanguageIds)
+    // console.log('変換後のID配列(colorOptionIds):', form.value.colorOptionIds)
+    // console.log('変換後のID配列(displayLanguageIds):', form.value.displayLanguageIds)
 
     // ネストされた price 情報など
     form.value.battery_type         = data.battery_data?.battery_type ?? ''

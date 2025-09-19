@@ -18,6 +18,7 @@ return [
     'lcd_resolution_dots' => 2360000,
     'iso_standard_min' => 50,
     'iso_standard_max' => 25600,
+    'metering_mode' => 'スマート測光、スポット、中央部重点、中央スポット',
     'exposure_value' => '-5〜5 EV 間で 1、1/2、または 1/3 ステップ毎に手動で調整',
     'shutter_electronic_min' => 4080,
     'shutter_electronic_max' => 0.00016666666666666666,
@@ -30,6 +31,7 @@ return [
     'internal_memory_gb' => 1000,
     'card_slot_count' => 1,
     'photo_size_l_mb' => 206,
+    'photo_resolution_l' => '11656 × 8742',
     'tripod_mount' => '1/4',
     'battery_type' => 'CP.HB.00000238.01',
     'battery_capacity_mAh' => 3400,
@@ -50,15 +52,7 @@ return [
     [
       0 => 'ガンメタリック',
     ],
-    'meteringModes' => 
-    [
-      0 => 'スポット測光',
-      1 => '中央重点測光',
-    ],
     'selfTimerSeconds' => 
-    [
-    ],
-    'whiteBalances' => 
     [
     ],
     'recordingMedias' => 
@@ -137,6 +131,7 @@ return [
     'iso_standard_min' => 64,
     'iso_standard_max' => 25600,
     'metering_method' => 'TTL中央重点測光システム',
+    'metering_mode' => 'スポット、中央部重点、中央スポット',
     'exposure_value' => '-3〜+3EV',
     'shutter_electronic_min' => 4080,
     'shutter_electronic_max' => 0.00025,
@@ -148,6 +143,7 @@ return [
     'internal_memory_gb' => 1000,
     'card_slot_count' => 1,
     'photo_size_l_mb' => 206,
+    'photo_resolution_l' => '11656 × 8742',
     'wifi' => '802.11b/a/g/n/ac/ax、2×2 MIMO Wi-Fiに対応',
     'tripod_mount' => '1/4',
     'battery_capacity_mAh' => 3400,
@@ -166,14 +162,6 @@ return [
     'colorOptions' => 
     [
       0 => 'ブラック',
-    ],
-    'meteringModes' => 
-    [
-      0 => 'スポット測光',
-      1 => '中央重点測光',
-    ],
-    'selfTimerSeconds' => 
-    [
     ],
     'whiteBalances' => 
     [

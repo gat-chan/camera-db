@@ -2,6 +2,11 @@
 /node_modules
 /public/hot
 /public/storage
+/public/img/Canon_raw
+/public/img/Fujifilm_raw
+/public/img/Hasselblad_raw
+/public/img/Leica_raw
+/public/img/Sony_raw
 /storage/*.key
 /storage/pail
 /vendor
@@ -11,6 +16,7 @@
 .phpactor.json
 .phpunit.result.cache
 memo.txt
+透過png_左右余白削除_webp変換.py
 Homestead.json
 Homestead.yaml
 npm-debug.log

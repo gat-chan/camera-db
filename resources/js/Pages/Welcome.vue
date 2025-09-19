@@ -58,6 +58,34 @@ console.log('Ziggy',Ziggy.namedRoutes);
         class="mx-auto w-11/12 sm:w-[48rem] max-w-[600px] rounded-lg shadow-2xl animate-fade-in-float">
     </section>
 
+    <!-- サイト紹介・コンセプト -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black via-gray-900 to-black text-white relative overflow-hidden fade-section opacity-0">
+      <div class="container mx-auto px-4 text-center">
+        <!-- 見出し -->
+        <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 animate-fade-in-up">
+          世界中のカメラを、あなたの手に。
+        </h2>
+
+        <!-- 説明文 -->
+        <p class="text-sm sm:text-base md:text-lg lg:text-xl max-w-full sm:max-w-2xl md:max-w-3xl mx-auto mb-10 text-gray-300 animate-fade-in-up delay-200">
+          Camera-DB は、最新から往年の名機までを網羅したカメラデータベースです。<br>
+          メーカーや仕様から検索し、理想の一台を見つけましょう。
+        </p>
+
+        <!-- CTAボタン -->
+        <Link
+          :href="route('search-camera')"
+          class="inline-block px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl shadow-lg hover:scale-105 transform transition duration-300 animate-fade-in-up delay-400"
+        >
+          カメラを探す
+        </Link>
+      </div>
+
+      <!-- バックグラウンドの装飾 -->
+      <div class="absolute top-1/4 left-1/2 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-purple-600 opacity-20 blur-3xl rounded-full -translate-x-1/2"></div>
+    </section>
+
+
     <!-- メーカー一覧セクション -->
     <section class="min-h-[80vh] flex items-center justify-center bg-black container mx-auto my-12 p-6 rounded-lg fade-section opacity-0">
       <div class="container mx-auto p-6 bg-gray-900 rounded-xl">
@@ -87,14 +115,14 @@ console.log('Ziggy',Ziggy.namedRoutes);
     <section class="min-h-[80vh] flex items-center justify-center bg-black p-6">
       <div class="container mx-auto">
         <h2 class="text-2xl font-bold mb-6 text-center text-white">
-          新着カメラ一覧
+          新着カメラ一覧（１０件）
         </h2>
 
         <swiper
           :modules="modules"
           :space-between="20"
           :loop="true"
-          :loop-additional-slides="7"
+          :loop-additional-slides="3"
           :autoplay="{ delay: 0, disableOnInteraction: false }"
           :speed="8000"
           :grab-cursor="true"

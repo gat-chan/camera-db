@@ -122,8 +122,8 @@
 <script setup>
 import { Link, Head, usePage } from '@inertiajs/vue3'
 import { ref } from 'vue'
-const page = usePage()
-console.log(page.props)
+// const page = usePage()
+// console.log(page.props)
 
 const mobileMenuOpen = ref(false)
 

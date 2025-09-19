@@ -37,7 +37,7 @@ return new class extends Migration {
             $table->integer('iso_extended_min')->nullable();
             $table->integer('iso_extended_max')->nullable();
             $table->string('metering_method')->nullable();
-            $table->foreignId('metering_mode_id')->nullable()->constrained('metering_modes')->onDelete('cascade');
+            $table->string('metering_mode')->nullable();
             $table->string('exposure_value')->nullable();
             $table->decimal('shutter_electronic_min', 10, 1)->nullable();
             $table->decimal('shutter_electronic_max', 10, 10)->nullable();
@@ -46,7 +46,7 @@ return new class extends Migration {
             $table->string('drive_mode')->nullable();
             $table->string('burst_mode_fps')->nullable();
             $table->foreignId('self_timer_second_id')->nullable()->constrained('self_timer_seconds')->onDelete('cascade');
-            $table->foreignId('white_balance_id')->nullable()->constrained('white_balances')->onDelete('cascade');
+            $table->string('white_balance')->nullable();
             $table->integer('temperature_low')->nullable();
             $table->integer('temperature_high')->nullable();
             $table->string('af_methods')->nullable();
@@ -59,12 +59,12 @@ return new class extends Migration {
             $table->integer('photo_size_l_mb')->nullable();
             $table->integer('photo_size_m_mb')->nullable();
             $table->integer('photo_size_s_mb')->nullable();
-            $table->integer('photo_resolution_l')->nullable();
-            $table->integer('photo_resolution_m')->nullable();
-            $table->integer('photo_resolution_s')->nullable();
+            $table->string('photo_resolution_l')->nullable();
+            $table->string('photo_resolution_m')->nullable();
+            $table->string('photo_resolution_s')->nullable();
             $table->foreignId('video_format_id')->nullable()->constrained('video_formats')->onDelete('cascade');
             $table->foreignId('video_codec_id')->nullable()->constrained('video_codecs')->onDelete('cascade');
-            $table->integer('video_resolution')->nullable();
+            $table->string('video_resolution', 500)->nullable();
             $table->string('audio_format')->nullable();
             $table->foreignId('interface_model_id')->nullable()->constrained('interface_models')->onDelete('cascade');
             $table->string('bluetooth')->nullable();

@@ -20,7 +20,7 @@ return [
     'iso_standard_min' => 64,
     'iso_standard_max' => 50000,
     'metering_method' => 'TTL測光（レンズの実絞りによる測光）',
-    'metering_mode_id' => 1,
+    'metering_mode' => 'スポット、中央重点、多点、ハイライト重点',
     'exposure_value' => '±3 EV（1/3 EVステップ）',
     'shutter_electronic_min' => 60,
     'shutter_electronic_max' => 6.25E-5,
@@ -28,8 +28,9 @@ return [
     'shutter_mechanical_max' => 0.00025,
     'drive_mode' => '1コマ, コンティニュアス - 低速 (3 fps], コンティニュアス - 高速 (4.5 fps], インターバル撮影, オートブラケット',
     'burst_mode_fps' => '4.5fps',
+    'white_balance' => 'オート（オート）、プリセット（晴天-5200K、くもり-6100K、日かげ（晴天時）-6600K、白熱灯-2950K、HMI-5700K、蛍光灯（暖色）-
+                        3650K、蛍光灯（寒色）-5800K、フラッシュ-6600K）、マニュアル（グレーカード）、色温度マニュアル設定（色温度 - 2000K～11500K）',
     'self_timer_second_id' => 1,
-    'white_balance_id' => 1,
     'buffer_memory_mb' => 3000,
     'internal_memory_gb' => 256,
     'card_slot_count' => 1,
@@ -37,9 +38,9 @@ return [
     'photo_size_l_mb' => 120,
     'photo_size_m_mb' => 70,
     'photo_size_s_mb' => 40,
-    'photo_resolution_l' => 60293184,
-    'photo_resolution_m' => 36546048,
-    'photo_resolution_s' => 18441456,
+    'photo_resolution_l' => '9528 x 6328',
+    'photo_resolution_m' => '7416 x 4928',
+    'photo_resolution_s' => '5272 x 3498',
     'video_format_id' => 1,
     'video_codec_id' => 1,
     'interface_model_id' => 1,
@@ -67,23 +68,10 @@ return [
     [
       0 => 'ブラック',
     ],
-    'meteringModes' => 
-    [
-      0 => 'ハイライト重点測光',
-      1 => 'スポット測光',
-      2 => '中央重点測光',
-      3 => '画面全体平均測光',
-    ],
     'selfTimerSeconds' => 
     [
       0 => '2秒',
       1 => '12秒',
-    ],
-    'whiteBalances' => 
-    [
-      0 => 'オート',
-      1 => 'フラッシュ',
-      2 => '色温度マニュアル',
     ],
     'recordingMedias' => 
     [
@@ -174,16 +162,16 @@ return [
     'iso_extended_min' => 50,
     'iso_extended_max' => 100000,
     'metering_method' => 'TTL測光',
-    'metering_mode_id' => 1,
+    'metering_mode' => 'スポット、中央重点、ハイライト重点、多点',
     'exposure_value' => '±3EVの範囲で1/3EVステップ',
     'shutter_electronic_min' => 1,
     'shutter_electronic_max' => 6.25E-5,
     'shutter_mechanical_min' => 3600,
     'shutter_mechanical_max' => 0.000125,
     'drive_mode' => '15コマ/秒(電子シャッター)、9コマ/秒(電子シャッター)、7コマ/秒(メカシャッター)、6コマ/秒(メカシャッター)、5コマ/秒(メカシャッター)、4コマ/秒(メカシャッター)、2コマ/秒(メカシャッター)',
-    'burst_mode_fps' => '15コマ/秒',
+    'burst_mode_fps' => '15fps',
     'self_timer_second_id' => 1,
-    'white_balance_id' => 1,
+    'white_balance' => 'オート、晴天、くもり、日かげ(晴天時)、白熱灯、HMI、蛍光灯(暖色)、蛍光灯(寒色)、フラッシュ、マニュアル、色温度設定',
     'temperature_low' => 2000,
     'temperature_high' => 11500,
     'af_methods' => '撮像エリアに像面位相差AFセンサーを配置した像面位相差検出方式、コントラスト検出方式、深度マップ測定を組み合わせた ハイブリッドAF',
@@ -192,12 +180,12 @@ return [
     'card_slot_count' => 2,
     'photo_format_id' => 1,
     'photo_size_l_mb' => 70,
-    'photo_resolution_l' => 60318720,
-    'photo_resolution_m' => 36486912,
-    'photo_resolution_s' => 18603184,
+    'photo_resolution_l' => '9520 × 6336',
+    'photo_resolution_m' => '7404 × 4928',
+    'photo_resolution_s' => '5288 × 3518',
     'video_format_id' => 1,
     'video_codec_id' => 1,
-    'video_resolution' => 35389440,
+    'video_resolution' => 'C8K：8192×4320、８K：7680×4320、C4K：4096×2160、４K：3840×2160、Full HD：1920×1080',
     'interface_model_id' => 1,
     'bluetooth' => 'Bluetooth5.0LE：チャンネル0－39(2402-2480MHz)',
     'wifi' => '2.4GHz/5GHz dual band IEEE802.11 a/n/ac Wave2ワイヤレスLAN(標準ワイヤレスプロトコル)、暗号化方式：ワイヤレスLAN対応 WPA™/WPA2™/WPA3™、アクセス方式：インフラストモード',
@@ -224,30 +212,12 @@ return [
     [
       0 => 'ブラック',
     ],
-    'meteringModes' => 
-    [
-      0 => 'スポット測光',
-      1 => '中央重点測光',
-      2 => '画面全体平均測光',
-    ],
     'selfTimerSeconds' => 
     [
       0 => '2秒',
       1 => '6秒',
       2 => '30秒',
       3 => '12秒',
-    ],
-    'whiteBalances' => 
-    [
-      0 => 'オート',
-      1 => '晴天 (太陽光)',
-      2 => '曇天 (くもり)',
-      3 => '日陰',
-      4 => '白熱灯 (電球)',
-      5 => '蛍光灯 (暖色)',
-      6 => '蛍光灯 (寒色)',
-      7 => 'フラッシュ',
-      8 => '色温度マニュアル',
     ],
     'recordingMedias' => 
     [
@@ -350,7 +320,7 @@ return [
     'iso_extended_min' => 50,
     'iso_extended_max' => 200000,
     'metering_method' => 'TTL測光',
-    'metering_mode_id' => 1,
+    'metering_mode' => 'スポット、中央重点、ハイライト重点、多点',
     'exposure_value' => '±3 EV（1/3 EVまたは1/2 EVステップ）',
     'shutter_electronic_min' => 60,
     'shutter_electronic_max' => 6.25E-5,
@@ -359,18 +329,19 @@ return [
     'drive_mode' => '2fps, 5fps, 7fps, 15fps, 30fps',
     'burst_mode_fps' => '30fps',
     'self_timer_second_id' => 1,
-    'white_balance_id' => 1,
+    'white_balance' => 'オート（オート）、プリセット（晴天、くもり、日かげ（晴天時）、白熱灯、HMI、蛍光灯 (暖色)、蛍光灯 (寒色)、フラッシュ）、マニュアル設定（グレーカード (ピペット)、グレーカード）、色温度設定（色温度、2000 K～11500 K）',
     'af_methods' => '撮像エリアに像面位相差AFセンサーを配置した像面位相差検出方式、コントラスト検出方式、深度マップ測定を組み合わせたハイブリッドAF',
     'af_points' => 779,
     'buffer_memory_mb' => 8000,
     'card_slot_count' => 2,
     'photo_format_id' => 1,
     'photo_size_l_mb' => 40,
-    'photo_resolution_l' => 24000000,
-    'photo_resolution_m' => 10328064,
+    'photo_resolution_l' => '35mm: DNG 6000 x 4000',
+    'photo_resolution_m' => 'APS-C: DNG 3936 x 2624',
     'video_format_id' => 1,
     'video_codec_id' => 1,
-    'video_resolution' => 23617536,
+    'video_resolution' => '6K OG (3:2)	5952 x 3968, C6K (17:9)	5952 x 3136, 6K (16:9)	5888 x 3312,(H.265), 5776 x 3056 (ProRes),C4K (17:9)	4096 x 2160 (MOV/MP4), 
+                           4128 x 2176 (RAW), 4K (16:9)	3840 x 2160, 3.5K (4:3)	3536 x 2656 (RAW), Full HD (16:9)	1920 x 1080',
     'audio_format' => 'AAC 48 kHz/16 Bit, LPCM 48 kHz/24 Bit',
     'interface_model_id' => 1,
     'bluetooth' => 'Bluetooth 5.0 LE：チャンネル0–39（2402–2480 MHz）',
@@ -396,30 +367,12 @@ return [
     [
       0 => 'ブラック',
     ],
-    'meteringModes' => 
-    [
-      0 => 'スポット測光',
-      1 => '中央重点測光',
-      2 => 'マルチパターン測光',
-    ],
     'selfTimerSeconds' => 
     [
       0 => '2秒',
       1 => '6秒',
       2 => '12秒',
       3 => '30秒',
-    ],
-    'whiteBalances' => 
-    [
-      0 => 'オート',
-      1 => '晴天 (太陽光)',
-      2 => '曇天 (くもり)',
-      3 => '日陰',
-      4 => '白熱灯 (電球)',
-      5 => '蛍光灯 (暖色)',
-      6 => '蛍光灯 (寒色)',
-      7 => 'フラッシュ',
-      8 => '色温度マニュアル',
     ],
     'recordingMedias' => 
     [
@@ -514,6 +467,7 @@ return [
     'iso_standard_min' => 64,
     'iso_standard_max' => 50000,
     'metering_method' => 'TTL測光',
+    'metering_mode' => 'スポット、中央重点、ハイライト重点、多点',
     'exposure_value' => '±3 EV（1/3EVステップ）',
     'shutter_electronic_min' => 60,
     'shutter_electronic_max' => 6.25E-5,
@@ -521,15 +475,17 @@ return [
     'shutter_mechanical_max' => 0.00025,
     'drive_mode' => '1コマ コンティニュアス - 低速 (3fps) コンティニュアス - 高速 (4.5fps) インターバル撮影 オートブラケット',
     'burst_mode_fps' => '4.5fps',
+    'white_balance' => 'オート（オート）、プリセット（晴天-5200K、くもり-6100K、日かげ（晴天時）-6600K、白熱灯-2950K、HMI-5700K、蛍光灯（暖色）-
+                        3650K、蛍光灯（寒色）-5800K、フラッシュ-6600K）、マニュアル（グレーカード）、色温度マニュアル設定（色温度 - 2000K～11500K）',
     'buffer_memory_mb' => 3000,
     'internal_memory_gb' => 256,
     'card_slot_count' => 1,
     'photo_size_l_mb' => 120,
     'photo_size_m_mb' => 70,
     'photo_size_s_mb' => 40,
-    'photo_resolution_l' => 60293184,
-    'photo_resolution_m' => 36546048,
-    'photo_resolution_s' => 18441456,
+    'photo_resolution_l' => '9528 x 6328',
+    'photo_resolution_m' => '7416 x 4928',
+    'photo_resolution_s' => '5272 x 3498',
     'bluetooth' => 'Bluetooth v4.2 BR/EDR/LE, BR/DRチャンネル 1‒79、LEチャンネル 0‒39（2402–2480MHz）',
     'wifi' => '2.4GHz/5GHz* dual band IEEE802.11 a/b/g/n/ac Wave2ワイヤレスLAN（標準ワイヤレスプロトコル）、暗号化方式：ワイヤレスLAN対応WPA™/WPA2™、アクセス方式：インフラストラクチャーモード',
     'tripod_mount' => 'A 1/4（1/4インチ、DIN4503に準拠）、合金製',
@@ -553,29 +509,10 @@ return [
     [
       0 => 'オリーブ',
     ],
-    'meteringModes' => 
-    [
-      0 => 'スポット測光',
-      1 => '中央重点測光',
-      2 => 'ハイライト重点測光',
-      3 => 'マルチパターン測光',
-    ],
     'selfTimerSeconds' => 
     [
       0 => '2秒',
       1 => '12秒',
-    ],
-    'whiteBalances' => 
-    [
-      0 => 'オート',
-      1 => '晴天 (太陽光)',
-      2 => '曇天 (くもり)',
-      3 => '日陰',
-      4 => '白熱灯 (電球)',
-      5 => '蛍光灯 (寒色)',
-      6 => '蛍光灯 (暖色)',
-      7 => 'フラッシュ',
-      8 => '色温度マニュアル',
     ],
     'recordingMedias' => 
     [
@@ -658,6 +595,7 @@ return [
     'iso_standard_min' => 64,
     'iso_standard_max' => 50000,
     'metering_method' => 'TTL測光',
+    'metering_mode' => 'スポット、中央重点、ハイライト重点、多点',
     'exposure_value' => '±3 EV（1/3 EVステップ）',
     'shutter_electronic_min' => 60,
     'shutter_electronic_max' => 6.25E-5,
@@ -665,6 +603,8 @@ return [
     'shutter_mechanical_max' => 0.00025,
     'drive_mode' => '1コマ コンティニュアス - 低速 (3 fps) コンティニュアス - 高速 (4.5 fps) インターバル撮影 オートブラケット',
     'burst_mode_fps' => '4.5fps',
+    'white_balance' => 'オート（オート）、プリセット（晴天-5200K、くもり-6100K、日かげ（晴天時）-6600K、白熱灯-2950K、HMI-5700K、蛍光灯（暖色）-
+                        3650K、蛍光灯（寒色）-5800K、フラッシュ-6600K）、マニュアル（グレーカード）、色温度マニュアル設定（色温度 - 2000K～11500K）',
     'temperature_low' => 2000,
     'temperature_high' => 11500,
     'buffer_memory_mb' => 3000,
@@ -673,9 +613,9 @@ return [
     'photo_size_l_mb' => 120,
     'photo_size_m_mb' => 70,
     'photo_size_s_mb' => 40,
-    'photo_resolution_l' => 60293184,
-    'photo_resolution_m' => 36546048,
-    'photo_resolution_s' => 18441456,
+    'photo_resolution_l' => '9528 x 6328',
+    'photo_resolution_m' => '7416 x 4928',
+    'photo_resolution_s' => '5272 x 3498',
     'bluetooth' => 'Bluetooth v4.2 BR/EDR/LE BR/DRチャンネル 1‒79、LEチャンネル 0‒39（2402–2480 MHz）',
     'wifi' => '2.4 GHz/5 GHz* dual band IEEE802.11 a/b/g/n/ac Wave2ワイヤレスLAN（標準ワイヤレスプロトコル） 暗号化方式：ワイヤレスLAN対応WPA™/WPA2™、アクセス方式：インフラストラクチャーモード',
     'tripod_mount' => 'A 1/4（1/4インチ、DIN4503に準拠）、ステンレススチール製',
@@ -699,29 +639,10 @@ return [
     [
       0 => 'ブラック',
     ],
-    'meteringModes' => 
-    [
-      0 => 'スポット測光',
-      1 => '中央重点測光',
-      2 => 'ハイライト重点測光',
-      3 => '画面全体平均測光',
-    ],
     'selfTimerSeconds' => 
     [
       0 => '12秒',
       1 => '2秒',
-    ],
-    'whiteBalances' => 
-    [
-      0 => 'オート',
-      1 => '晴天 (太陽光)',
-      2 => '曇天 (くもり)',
-      3 => '日陰',
-      4 => '白熱灯 (電球)',
-      5 => '蛍光灯 (暖色)',
-      6 => '蛍光灯 (寒色)',
-      7 => 'フラッシュ',
-      8 => '色温度マニュアル',
     ],
     'recordingMedias' => 
     [

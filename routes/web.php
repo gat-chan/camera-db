@@ -14,7 +14,8 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 Route::get('/search-camera', [CameraController::class, 'index'])->name('search-camera');
 // 登録ページ
 Route::get('/register-camera', [CameraController::class, 'create'])->name('register-camera');
-
+// 登録ページ(編集)
+Route::get('/camera-seed', [CameraController::class, 'fetch'])->name('camera-seed');
 // 一般ユーザー（閲覧のみ）
 Route::get('/cameras', [CameraController::class, 'index'])->name('cameras.index');
 Route::get('/cameras/{camera}', [CameraController::class, 'detail'])->name('camera-detail');

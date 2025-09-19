@@ -15,8 +15,6 @@ use App\Models\RecordingMedia;
 use App\Models\InterfaceModel;
 use App\Models\Accessory;
 use App\Models\AfMethod;
-use App\Models\MeteringMode;
-use App\Models\WhiteBalance;
 use App\Models\DisplayLanguage;
 use App\Models\PhotoFormat;
 use App\Models\VideoFormat;
@@ -39,9 +37,7 @@ class CameraSeeder extends Seeder
                 $lens_mount         = LensMount::where('name_ja', $item['lens_mount_name'])->orWhere('name_en', $item['lens_mount_name'])->first();
                 $sensor_type        = SensorType::where('name_ja', $item['sensor_type_name'])->orWhere('name_en', $item['sensor_type_name'] ?? '')->first();
                 $color_option       = ColorOption::where('name_ja', $item['color_option_name'] ?? '')->orWhere('name_en', $item['color_option_name'] ?? '')->first();
-                $metering_mode      = MeteringMode::where('name_ja', $item['metering_mode_name'] ?? '')->orWhere('name_en', $item['metering_mode_name'] ?? '')->first();
                 $self_timer_second  = SelfTimerSecond::where('name_ja', $item['self_timer_second_name'] ?? '')->orWhere('name_en', $item['self_timer_second_name'] ?? '')->first();
-                $white_balance      = WhiteBalance::where('name_ja', $item['white_balance_name'] ?? '')->orWhere('name_en', $item['white_balance_name'] ?? '')->first();
                 $recording_media    = RecordingMedia::where('name_ja', $item['recording_media_name'] ?? '')->orWhere('name_en', $item['recording_media_name'] ?? '')->first();
                 $photo_format       = PhotoFormat::where('name_ja', $item['photo_format_name'] ?? '')->orWhere('name_en', $item['photo_format_name'] ?? '')->first();
                 $video_format       = VideoFormat::where('name_ja', $item['video_format_name'] ?? '')->orWhere('name_en', $item['video_format_name'] ?? '')->first();
@@ -81,7 +77,7 @@ class CameraSeeder extends Seeder
                     'iso_extended_min'         => $item['iso_extended_min'] ?? null,
                     'iso_extended_max'         => $item['iso_extended_max'] ?? null,
                     'metering_method'          => $item['metering_method'] ?? null,
-                    'metering_mode_id'         => optional($metering_mode)->id,
+                    'metering_mode'            => $item['metering_mode'] ?? null,
                     'exposure_value'           => $item['exposure_value'] ?? null,
                     'shutter_electronic_min'   => $item['shutter_electronic_min'] ?? null,
                     'shutter_electronic_max'   => $item['shutter_electronic_max'] ?? null,
@@ -90,7 +86,7 @@ class CameraSeeder extends Seeder
                     'drive_mode'               => $item['drive_mode'] ?? null,
                     'burst_mode_fps'           => $item['burst_mode_fps'] ?? null,
                     'self_timer_second_id'     => optional($self_timer_second)->id,
-                    'white_balance_id'         => optional($white_balance)->id,
+                    'white_balance'            => $item['white_balance'] ?? null,
                     'temperature_low'          => $item['temperature_low'] ?? null,
                     'temperature_high'         => $item['temperature_high'] ?? null,
                     'af_methods'               => $item['af_methods'] ?? null,
@@ -134,9 +130,7 @@ class CameraSeeder extends Seeder
                 // 多対多リレーションの同期処理
                 $pivotMap = [
                     'colorOptions'     => [ColorOption::class,     'colorOptions'],
-                    'meteringModes'    => [MeteringMode::class,    'meteringModes'],
                     'selfTimerSeconds' => [SelfTimerSecond::class, 'selfTimerSeconds'],
-                    'whiteBalances'    => [WhiteBalance::class,    'whiteBalances'],
                     'recordingMedias'  => [RecordingMedia::class,  'recordingMedias'],
                     'photoFormats'     => [PhotoFormat::class,     'photoFormats'],
                     'videoFormats'     => [VideoFormat::class,     'videoFormats'],

@@ -15,8 +15,6 @@ use App\Models\InterfaceModel;
 use App\Models\Accessory;
 use App\Models\AfMethod;
 use App\Models\MeteringMethod;
-use App\Models\MeteringMode;
-use App\Models\WhiteBalance;
 use App\Models\DisplayLanguage;
 use App\Models\PhotoFormat;
 use App\Models\VideoFormat;
@@ -38,9 +36,7 @@ class CameraController extends Controller
             'sensorType',
             'prices',
             'colorOptions',
-            'meteringModes',
             'selfTimerSeconds',
-            'whiteBalances',
             'recordingMedias',
             'photoFormats',
             'videoFormats',
@@ -131,9 +127,9 @@ class CameraController extends Controller
                 'sensor_type_ids'   => $request->input('sensor_type_ids', []),
                 'video_format_ids'  => $request->input('video_format_ids', []),
                 'price_range'       => $request->input('price_range', [50000, 2000000]),
-                'weight_range'      => $request->input('weight_range', [100, 1200]),
-                'release_year'      => $request->input('release_year', 2000),
-                'effective_pixels'  => $request->input('effective_pixels', 8000),
+                'weight_range'      => $request->input('weight_range', [100, 1500]),
+                'release_year'      => $request->input('release_year', 1980),
+                'effective_pixels'  => $request->input('effective_pixels', 10000),
                 'iso_min'           => $request->input('iso_min'),
                 'iso_max'           => $request->input('iso_max'),
                 'keyword'           => $request->input('keyword', ''),
@@ -152,9 +148,7 @@ class CameraController extends Controller
             'sensorTypes'      => SensorType::all(),
             'features'         => Feature::all(),
             'colorOptions'     => ColorOption::all(),
-            'meteringModes'    => MeteringMode::all(),
             'selfTimerSeconds' => SelfTimerSecond::all(),
-            'whiteBalances'    => WhiteBalance::all(),
             'recordingMedias'  => RecordingMedia::all(),
             'photoFormats'     => PhotoFormat::all(),
             'videoFormats'     => VideoFormat::all(),
@@ -219,6 +213,49 @@ class CameraController extends Controller
         return redirect()->back()->with('success', '保存完了（PHP形式）');
     }
 
+    // シーダーからの編集
+    public function fetch(Request $request)
+    {
+        $manufacturer  = $request->query('manufacturer', '');
+        $modelNumber   = $request->query('model_number', '');
+    
+        if (!$manufacturer || !$modelNumber) {
+            return response()->json(['message' => 'Manufacturer and model number are required'], 400);
+        }
+    
+        // ファイルパスを作成（空白や特殊文字は避けるためサニタイズ）
+        $fileName = database_path('data/cameras/' . preg_replace('/[^a-zA-Z0-9_-]/', '', $manufacturer) . '.php');
+
+        \Log::info('読み込むファイル: ' . $fileName);
+    
+        if (!file_exists($fileName)) {
+            return response()->json(['message' => 'Manufacturer file not found'], 404);
+        }
+    
+        // Seeder データを読み込む
+        $allCameras = include $fileName;
+        \Log::info('Requested manufacturer: ' . $manufacturer);
+        \Log::info('Requested model_number: ' . $modelNumber);
+        \Log::info('Seeder配列の型: ' . gettype($allCameras));
+        \Log::info('Seederの件数: ' . count($allCameras));
+    
+        if (!is_array($allCameras)) {
+            return response()->json(['message' => 'Seeder data invalid'], 500);
+        }
+    
+        // 該当のカメラを探す
+        $camera = collect($allCameras)->first(function ($item) use ($manufacturer, $modelNumber) {
+            return ($item['manufacturer_name'] ?? '') === $manufacturer
+                && ($item['model_number'] ?? '') === $modelNumber;
+        });      
+    
+        if (!$camera) {
+            return response()->json(['message' => 'Camera not found'], 404);
+        }
+    
+        return response()->json($camera);
+    }
+    
 
     // 編集フォーム表示
     public function edit(Camera $camera)
@@ -226,10 +263,8 @@ class CameraController extends Controller
         $camera->load([
             'features',
             'colorOptions',
-            'meteringModes',
             'driveModes',
             'selfTimerSeconds',
-            'whiteBalances',
             'recordingMedias',
             'photoFormats',
             'videoFormats',
@@ -300,9 +335,7 @@ class CameraController extends Controller
     private function syncRelations(Camera $camera, Request $request): void
     {
         $camera->colorOptions()->sync($request->input('colorOptionIds', []));      
-        $camera->meteringModes()->sync($request->input('meteringModeIds', []));
         $camera->selfTimerSeconds()->sync($request->input('selfTimerSecondIds', []));
-        $camera->whiteBalances()->sync($request->input('whiteBalanceIds', []));
         $camera->recordingMedias()->sync($request->input('recordingMediaIds', []));
         $camera->photoFormats()->sync($request->input('photoFormatIds', []));
         $camera->videoFormats()->sync($request->input('videoFormatIds', []));
@@ -322,9 +355,7 @@ class CameraController extends Controller
             'lensMounts'       => LensMount::all(),
             'sensorTypes'      => SensorType::all(),
             'colorOptions'     => ColorOption::all(),
-            'meteringModes'    => MeteringMode::all(),
             'selfTimerSeconds' => SelfTimerSecond::all(),
-            'whiteBalances'    => WhiteBalance::all(),
             'recordingMedias'  => RecordingMedia::all(),
             'photoFormats'     => PhotoFormat::all(),
             'videoFormats'     => VideoFormat::all(),
@@ -345,9 +376,7 @@ class CameraController extends Controller
             'sensorType',         // belongsTo
             'features',           // belongsToMany
             'colorOptions',       // belongsToMany
-            'meteringModes',      // belongsToMany
             'selfTimerSeconds',   // belongsToMany
-            'whiteBalances',      // belongsToMany
             'recordingMedias',    // belongsToMany
             'photoFormats',       // belongsToMany
             'videoFormats',       // belongsToMany

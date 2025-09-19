@@ -21,6 +21,7 @@ return [
     'iso_extended_min' => 50,
     'iso_extended_max' => 204800,
     'metering_method' => '撮像素子の出力信号による384分割（24×16）測光',
+    'metering_mode' => '評価測光、部分測光（画面中央の約5.9％）、スポット測光（画面中央の約3.0％）、中央部重点平均測光',
     'exposure_value' => 'EV-3～20',
     'shutter_electronic_min' => 30,
     'shutter_electronic_max' => 6.25E-5,
@@ -28,15 +29,16 @@ return [
     'shutter_mechanical_max' => 0.000125,
     'drive_mode' => '高速連続撮影＋、RAWバーストモード、HDRモード、フォーカスブラケット撮影、絞り数値変化時の露出維持（ISO感度／Tv値、Tv値）設定時は、1／8000秒まで',
     'burst_mode_fps' => '40fps',
+    'white_balance' => 'オート（雰囲気優先／ホワイト優先）、太陽光、日陰、くもり、白熱電球、白色蛍光灯、ストロボ、マニュアル、色温度指定（約2500～10000K）、ホワイトバランス補正、ホワイトバランスブラケティング可能',
     'temperature_low' => 2500,
     'temperature_high' => 10000,
     'af_methods' => 'デュアルピクセルCMOS AF',
     'af_points' => 1053,
     'card_slot_count' => 2,
-    'photo_resolution_l' => 24000000,
-    'photo_resolution_m' => 10600000,
-    'photo_resolution_s' => 5900000,
-    'video_resolution' => 8294400,
+    'photo_resolution_l' => '6000×4000',
+    'photo_resolution_m' => '3984×2656',
+    'photo_resolution_s' => '2976×1984',
+    'video_resolution' => '3840×2160',
     'audio_format' => '［音声圧縮：する］設定時はAAC／［音声圧縮：しない］設定時はリニアPCM',
     'bluetooth' => 'Bluetooth Specification Version 5.0準拠',
     'wifi' => 'IEEE 802.11b／g／n／a／ac規格相当',
@@ -57,28 +59,10 @@ return [
     [
       0 => 'ブラック',
     ],
-    'meteringModes' => 
-    [
-      0 => '評価測光',
-      1 => '部分測光',
-      2 => 'スポット測光',
-      3 => '中央重点測光',
-    ],
     'selfTimerSeconds' => 
     [
       0 => '2秒',
       1 => '10秒',
-    ],
-    'whiteBalances' => 
-    [
-      0 => 'オート',
-      1 => '晴天 (太陽光)',
-      2 => '日陰',
-      3 => '曇天 (くもり)',
-      4 => '白熱灯 (電球)',
-      5 => '色温度マニュアル',
-      6 => '蛍光灯 (寒色)',
-      7 => 'フラッシュ',
     ],
     'recordingMedias' => 
     [
@@ -175,6 +159,7 @@ return [
     'iso_extended_min' => 50,
     'iso_extended_max' => 409600,
     'metering_method' => '撮像素子の出力信号による 6144分割（96×64）測光',
+    'metering_mode' => '評価測光、部分測光（画面中央の約10.0%）、スポット測光（画面中央の約5.0%）、中央部重点平均測光',
     'exposure_value' => 'EV-3～20',
     'shutter_electronic_min' => 30,
     'shutter_electronic_max' => 1.5625E-5,
@@ -182,14 +167,16 @@ return [
     'shutter_mechanical_max' => 0.000125,
     'drive_mode' => '1枚撮影、高速連続撮影＋、高速連続撮影、低速連続撮影、 セルフタイマー：10秒、セルフタイマー：2秒、セルフタイマー：連続撮影',
     'burst_mode_fps' => '40fps',
+    'white_balance' => 'オート（雰囲気優先／ホワイト優先）、太陽光、日陰、くもり、白熱電球、白色蛍光灯、ストロボ、マニュアル(MWBデータ登録）、色温度指定（約2500～10000K）、ホワイトバランス補正、ホワイトバランスブラケティング可能',
     'temperature_low' => 2500,
     'temperature_high' => 10000,
     'af_methods' => 'デュアルピクセルCMOS AF',
     'af_points' => 1053,
     'card_slot_count' => 2,
-    'photo_resolution_l' => 24000000,
-    'photo_resolution_m' => 10600000,
-    'photo_resolution_s' => 5900000,
+    'photo_resolution_l' => '6000×4000',
+    'photo_resolution_m' => '3984×2656',
+    'photo_resolution_s' => '2976×1984',
+    'video_resolution' => 'RAW 6000×3164, XF-HEVC S YCC422 4096×2160, XF-HEVC S YCC420 3840×2160',
     'audio_format' => 'LPCM(4ch 24bit) , AAC(2ch 16bit)',
     'bluetooth' => 'Bluetooth Specification Version 5.3準拠',
     'wifi' => 'IEEE 802.11b／g／n／a／ac／ax 規格相当',
@@ -212,28 +199,10 @@ return [
     [
       0 => 'ブラック',
     ],
-    'meteringModes' => 
-    [
-      0 => '評価測光',
-      1 => '部分測光',
-      2 => 'スポット測光',
-      3 => '中央重点測光',
-    ],
     'selfTimerSeconds' => 
     [
       0 => '2秒',
       1 => '10秒',
-    ],
-    'whiteBalances' => 
-    [
-      0 => 'オート',
-      1 => '晴天 (太陽光)',
-      2 => '日陰',
-      3 => '曇天 (くもり)',
-      4 => '白熱灯 (電球)',
-      5 => '蛍光灯 (寒色)',
-      6 => 'フラッシュ',
-      7 => '色温度マニュアル',
     ],
     'recordingMedias' => 
     [
@@ -329,6 +298,7 @@ return [
     'iso_extended_min' => 50,
     'iso_extended_max' => 204800,
     'metering_method' => '撮像素子の出力信号による384分割（24×16）測光',
+    'metering_mode' => '評価測光（すべてのAFフレームに対応）、部分測光（画面の約5.9％）、スポット測光（画面の約2.9％）、中央部重点平均測光',
     'exposure_value' => 'EV-3～20',
     'shutter_electronic_min' => 30,
     'shutter_electronic_max' => 1.5625E-5,
@@ -336,15 +306,16 @@ return [
     'shutter_mechanical_max' => 0.000125,
     'drive_mode' => '1枚撮影、カスタム高速連続撮影※、高速連続撮影＋、高速連続撮影、低速連続撮影、 セルフタイマー：10秒／リモコン、セルフタイマー：2秒／リモコン',
     'burst_mode_fps' => '30fps',
+    'white_balance' => '	オート（雰囲気優先）、オート（ホワイト優先）、プリセット（太陽光、日陰、くもり、白熱電球、白色蛍光灯、ストロボ※）、マニュアル、色温度指定（約2500～10000K）、ホワイトバランス補正、ホワイトバランスブラケティング可能',
     'temperature_low' => 2500,
     'temperature_high' => 10000,
     'af_methods' => 'デュアルピクセルCMOS AF',
     'af_points' => 1053,
     'card_slot_count' => 2,
-    'photo_resolution_l' => 24000000,
-    'photo_resolution_m' => 10600000,
-    'photo_resolution_s' => 5900000,
-    'video_resolution' => 24000000,
+    'photo_resolution_l' => '6000×4000',
+    'photo_resolution_m' => '3984×2656',
+    'photo_resolution_s' => '2976×1984',
+    'video_resolution' => '6K RAW：6000×3164, 4K DCI：4096×2160, 4K UHD：3840×2160, フルHD：1920×1080',
     'audio_format' => 'ALL-I／IPB：AAC／リニアPCM（選択可能）、IPB（軽量）：AAC',
     'bluetooth' => 'Bluetooth Specification Version 5.0準拠',
     'wifi' => 'IEEE 802.11b／g／n／a／ac規格相当',
@@ -368,28 +339,10 @@ return [
     [
       0 => 'ブラック',
     ],
-    'meteringModes' => 
-    [
-      0 => '部分測光',
-      1 => '評価測光',
-      2 => 'スポット測光',
-      3 => '中央重点測光',
-    ],
     'selfTimerSeconds' => 
     [
       0 => '2秒',
       1 => '10秒',
-    ],
-    'whiteBalances' => 
-    [
-      0 => 'オート',
-      1 => '晴天 (太陽光)',
-      2 => '曇天 (くもり)',
-      3 => '日陰',
-      4 => '白熱灯 (電球)',
-      5 => '蛍光灯 (寒色)',
-      6 => 'フラッシュ',
-      7 => '色温度マニュアル',
     ],
     'recordingMedias' => 
     [
